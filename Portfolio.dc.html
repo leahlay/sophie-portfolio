@@ -49,10 +49,49 @@
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
   </button>
 
-  <nav style="position:sticky; top:12px; z-index:50; display:flex; justify-content:center; align-items:center; gap:10px; padding:0 16px;">
-      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-        <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="flex-shrink:0; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
-          <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
+  <nav style="position:sticky; top:12px; z-index:50; display:flex; justify-content:center; align-items:center; gap:12px; padding:0 16px;">
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; align-items:center; background:var(--nav-bg); backdrop-filter:blur(16px); border:1px solid var(--nav-border); border-radius:100px; padding:9px 6px 9px 16px; box-shadow:0 2px 16px rgba(0,0,0,0.3); max-width:100%; gap:8px; transition:background 0.3s ease, border-color 0.3s ease;">
+        <div style="display:flex; align-items:center; gap:8px; margin-right:14px; flex-shrink:0;">
+          <span style="width:7px; height:7px; border-radius:100px; background:#3EC46D; flex-shrink:0;"></span>
+          <span style="font-size:15px; font-weight:800; letter-spacing:-0.02em; color:var(--text); white-space:nowrap;">Sophie<span style="color:var(--accent);">.</span></span>
+        </div>
+        <span style="width:1px; height:16px; background:var(--divider); flex-shrink:0;"></span>
+        <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+          <a href="#work" style="font-size:14px; font-weight:600; color:var(--text-muted); padding:8px 12px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Work</a>
+          <a href="About.dc.html" style="font-size:14px; font-weight:600; color:var(--text-muted); padding:8px 12px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">About</a>
+          <a href="#contact" style="font-size:14px; font-weight:600; color:var(--text-muted); padding:8px 12px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Contact</a>
+        </div>
+        <a href="About.dc.html#resume" style="font-size:14px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:9px 16px; border-radius:100px; white-space:nowrap; flex-shrink:0; transition:background 0.2s; text-decoration:none;" style-hover="background:#6E1B39;">Resume</a>
+      </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; align-items:center; justify-content:space-between; width:100%; background:var(--nav-bg); backdrop-filter:blur(16px); border:1px solid var(--nav-border); border-radius:100px; padding:7px 7px 7px 18px; box-shadow:0 2px 16px rgba(0,0,0,0.18); transition:background 0.3s ease, border-color 0.3s ease;">
+        <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+          <span style="width:7px; height:7px; border-radius:100px; background:#3EC46D; flex-shrink:0;"></span>
+          <span style="font-size:16px; font-weight:800; letter-spacing:-0.02em; color:var(--text); white-space:nowrap;">Sophie<span style="color:var(--accent);">.</span></span>
+        </div>
+        <button onClick="{{ toggleMenu }}" aria-label="Open menu" style="width:38px; height:38px; flex-shrink:0; border:none; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0;">
+          <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+          </sc-if>
+          <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+          </sc-if>
+        </button>
+      </div>
+    </sc-if>
+  </nav>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeMenu }}" style="position:fixed; top:70px; left:16px; right:16px; z-index:60; background:var(--nav-bg); backdrop-filter:blur(20px); border:1px solid var(--nav-border); border-radius:24px; box-shadow:0 18px 50px rgba(0,0,0,0.3); overflow:hidden;">
+      <a href="#work" style="display:block; font-size:17px; font-weight:700; color:var(--text); padding:18px 22px; text-decoration:none; border-bottom:1px solid var(--divider);">Work</a>
+      <a href="About.dc.html" style="display:block; font-size:17px; font-weight:700; color:var(--text); padding:18px 22px; text-decoration:none; border-bottom:1px solid var(--divider);">About</a>
+      <a href="#contact" style="display:block; font-size:17px; font-weight:700; color:var(--text); padding:18px 22px; text-decoration:none; border-bottom:1px solid var(--divider);">Contact</a>
+      <a href="About.dc.html#resume" style="display:block; font-size:17px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:18px 22px; text-decoration:none;">Resume</a>
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 22px; border-top:1px solid var(--divider);">
+        <span style="font-size:13px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--text-muted);">Appearance</span>
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="flex-shrink:0; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--toggle-bg); display:flex; align-items:center; padding:3px; cursor:pointer;">
+          <div style="width:24px; height:24px; border-radius:100px; background:var(--bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
             <sc-if value="{{ dark }}" hint-placeholder-val="{{ true }}">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F0A0BE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3.5 Q11 4.5 11 12 Q11 19.5 18.5 20.5 Q13 22.5 8.5 18.5 Q4 14.5 6 8.5 Q8 3 15 3.5 Z"></path><circle cx="9" cy="9" r="0.6" fill="#F0A0BE"></circle><circle cx="7.5" cy="13" r="0.5" fill="#F0A0BE"></circle></svg>
             </sc-if>
@@ -61,21 +100,9 @@
             </sc-if>
           </div>
         </button>
-      </sc-if>
-    <div style="display:flex; align-items:center; background:var(--nav-bg); backdrop-filter:blur(16px); border:1px solid var(--nav-border); border-radius:100px; padding:6px 4px 6px 10px; box-shadow:0 2px 16px rgba(0,0,0,0.3); max-width:100%; overflow-x:auto; gap:2px; transition:background 0.3s ease, border-color 0.3s ease;">
-      <div style="display:flex; align-items:center; gap:6px; margin-right:10px; flex-shrink:0;">
-        <span style="width:6px; height:6px; border-radius:100px; background:#3EC46D; flex-shrink:0;"></span>
-        <span style="font-size:11px; font-weight:800; letter-spacing:-0.02em; color:var(--text); white-space:nowrap;">Sophie<span style="color:var(--accent);">.</span></span>
       </div>
-      <span style="width:1px; height:12px; background:var(--divider); flex-shrink:0;"></span>
-      <div style="display:flex; align-items:center; gap:0; flex-shrink:0;">
-        <a href="#work" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Work</a>
-        <a href="About.dc.html" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">About</a>
-        <a href="#contact" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Contact</a>
-      </div>
-      <a href="About.dc.html#resume" style="font-size:10.5px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:6px 10px; border-radius:100px; white-space:nowrap; flex-shrink:0; transition:background 0.2s; text-decoration:none;" style-hover="background:#6E1B39;">Resume</a>
     </div>
-  </nav>
+  </sc-if>
   <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
     <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="position:absolute; left:24px; top:14px; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; z-index:51; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
       <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
@@ -90,10 +117,10 @@
   </sc-if>
 
   <section style="max-width:680px; margin:0 auto; padding:clamp(56px,10vw,80px) 24px 48px; text-align:center; display:flex; flex-direction:column; align-items:center; position:relative;">
-    <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--eyebrow-bg); padding:6px 16px; border-radius:100px; margin-bottom:24px;">Product Designer</div>
-    <h1 style="font-size:clamp(32px,6vw,54px); font-weight:800; letter-spacing:-0.035em; line-height:1.1; margin:0 0 24px; color:var(--text);">People before pixels.</h1>
+    <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--eyebrow-bg); padding:6px 16px; border-radius:100px; margin-bottom:20px;">Product Designer</div>
+    <h1 style="font-size:clamp(32px,6vw,54px); font-weight:800; letter-spacing:-0.035em; line-height:1.1; margin:0 0 14px; color:var(--text);">People before pixels.</h1>
     <p style="font-size:17px; font-weight:300; color:var(--text-muted); line-height:1.7; max-width:460px; margin:0 0 32px;">Five years in marketing before design taught me to think about the person before the pixel, every time.</p>
-    <a href="#work" style="display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:14px 30px; border-radius:100px; transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease, background 0.2s ease; text-decoration:none;" style-hover="background:#6E1B39; transform:translateY(-4px) scale(1.04); box-shadow:0 14px 30px rgba(139,35,71,0.4);">See my work ↓</a>
+    <a href="#work" style="display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:14px 32px; border-radius:100px; transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease, background 0.2s ease; text-decoration:none;" style-hover="background:#6E1B39; transform:translateY(-4px) scale(1.04); box-shadow:0 14px 30px rgba(139,35,71,0.4);">See my work ↓</a>
 
     <div style="position:relative; width:220px; height:220px; margin-top:48px; flex-shrink:0;">
       <div style="width:100%; height:100%; border-radius:50%; overflow:hidden; box-shadow:0 0 0 4px var(--bg), 0 0 0 6px rgba(139,35,71,0.5), 0 24px 50px rgba(0,0,0,0.3); background:#1A1A1A; transition:box-shadow 0.3s ease;">
@@ -121,74 +148,74 @@
   <section id="work" data-reveal="" style="max-width:820px; margin:64px auto 0; padding:0 24px; text-align:center; opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s cubic-bezier(.16,1,.3,1);">
     <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--eyebrow-bg); padding:6px 16px; border-radius:100px; margin-bottom:20px;">Selected Work</div>
     <h2 style="font-size:clamp(26px,4.5vw,38px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; margin:0 0 40px; color:var(--text);">Case studies</h2>
-    <div style="display:flex; flex-direction:column; gap:16px; text-align:left;">
+    <div style="display:flex; flex-direction:column; gap:16px; text-align:{{ cardsTextAlign }};">
 
-    <a href="Fertitude.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:8px; background:radial-gradient(circle at 1px 1px, rgba(255,255,255,0.09) 1px, transparent 0) 0 0/18px 18px, #4A3570; padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.55s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.55s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.05);">
+    <a href="Fertitude.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:24px; background:radial-gradient(circle at 1px 1px, rgba(255,255,255,0.09) 1px, transparent 0) 0 0/18px 18px, #4A3570; padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.55s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.55s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.05);">
       <div ref="{{ fertTextRef }}">
-        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:{{ cardChipsJustify }}; gap:6px; margin-bottom:20px;">
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.22); color:rgba(255,255,255,0.85);">Femtech</span>
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.22); color:rgba(255,255,255,0.85);">Mobile</span>
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.22); color:rgba(255,255,255,0.85);">Full Redesign</span>
         </div>
         <h3 style="font-size:clamp(22px,3.5vw,32px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; color:#FFFFFF; margin:0 0 12px;">Fertitude</h3>
-        <p style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#FFFFFF; line-height:1.4; margin:0 0 12px;">Making reproductive health feel less clinical, more human.</p>
-        <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.68); line-height:1.7; margin:0;">I handled the full redesign of Fertitude, a reproductive health app. I reworked the period tracker, embedded the AI assistant across the product instead of keeping her confined to one screen, and rethought how expert care and community worked.</p>
-        <div style="display:flex; gap:32px; margin-top:24px;">
+        <p style="font-size:16px; font-weight:600; letter-spacing:-0.01em; color:#FFFFFF; line-height:1.4; margin:0 0 12px;">Making reproductive health feel less clinical, more human.</p>
+        <p style="font-size:13.5px; font-weight:300; color:rgba(255,255,255,0.68); line-height:1.7; margin:0;">I handled the full redesign of Fertitude, a reproductive health app. I reworked the period tracker, embedded the AI assistant across the product instead of keeping her confined to one screen, and rethought how expert care and community worked.</p>
+        <div style="display:flex; justify-content:{{ cardChipsJustify }}; gap:32px; margin-top:24px;">
           <div>
             <div style="font-size:12px; color:rgba(255,255,255,0.55); margin-bottom:2px;">Status</div>
             <div style="font-size:18px; font-weight:800; letter-spacing:-0.02em; color:rgba(255,255,255,0.95);">Live</div>
           </div>
         </div>
       </div>
-      <div style="display:flex; align-items:center; justify-content:flex-end; order:{{ cardImageOrder }}; min-width:0; overflow:hidden;">
+      <div style="display:flex; align-items:center; justify-content:{{ cardImgJustify }}; order:{{ cardImageOrder }}; min-width:0;">
         <div style="height:{{ fertImgHeight }}; border-radius:24px; flex-shrink:0; transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:scale(1.08) rotate(-1deg);">
           <img src="assets/fertitude.jpg" alt="Fertitude home screen showing today's cycle day and phase" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
         </div>
       </div>
     </a>
 
-    <a href="Fanatix.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:8px; background:repeating-linear-gradient(135deg, rgba(191,255,0,0.09) 0px, rgba(191,255,0,0.09) 1px, transparent 1px, transparent 13px), #0D0D0D; border:1px solid rgba(255,255,255,0.14); padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.4s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.08);">
+    <a href="Fanatix.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:24px; background:repeating-linear-gradient(135deg, rgba(191,255,0,0.09) 0px, rgba(191,255,0,0.09) 1px, transparent 1px, transparent 13px), #0D0D0D; border:1px solid rgba(255,255,255,0.14); padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.4s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.08);">
       <div ref="{{ fanTextRef }}">
-        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:{{ cardChipsJustify }}; gap:6px; margin-bottom:20px;">
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">Sports</span>
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">Fan Engagement</span>
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">Mobile</span>
         </div>
         <h3 style="font-size:clamp(22px,3.5vw,32px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; color:#FFFFFF; margin:0 0 12px;">Fanatix</h3>
-        <p style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#FFFFFF; line-height:1.4; margin:0 0 12px;">Designing the second screen sports fans actually reach for.</p>
-        <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.7; margin:0;">I came in to redesign Fanatix from an earlier version of the app, then kept building from there: community features, monetisation flows, and live banter rooms where fans talk through a match as it happens. Now the app is the first thing fans reach for, instead of scattering banter across a dozen other tabs.</p>
-        <div style="display:flex; gap:32px; margin-top:24px;">
+        <p style="font-size:16px; font-weight:600; letter-spacing:-0.01em; color:#FFFFFF; line-height:1.4; margin:0 0 12px;">Designing the second screen sports fans actually reach for.</p>
+        <p style="font-size:13.5px; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.7; margin:0;">I came in to redesign Fanatix from an earlier version of the app, then kept building from there: community features, monetisation flows, and live banter rooms where fans talk through a match as it happens. Now the app is the first thing fans reach for, instead of scattering banter across a dozen other tabs.</p>
+        <div style="display:flex; justify-content:{{ cardChipsJustify }}; gap:32px; margin-top:24px;">
           <div>
             <div style="font-size:12px; color:rgba(255,255,255,0.55); margin-bottom:2px;">Status</div>
             <div style="font-size:18px; font-weight:800; letter-spacing:-0.02em; color:rgba(255,255,255,0.95);">Live</div>
           </div>
         </div>
       </div>
-      <div style="display:flex; align-items:center; justify-content:flex-end; order:{{ cardImageOrder }};">
+      <div style="display:flex; align-items:center; justify-content:{{ cardImgJustify }}; order:{{ cardImageOrder }};">
         <div style="height:{{ fanImgHeight }}; border-radius:24px; flex-shrink:0; transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:scale(1.08) rotate(1deg);">
           <img src="assets/fanatix.jpg" alt="Fanatix home screen showing live match scores" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
         </div>
       </div>
     </a>
 
-    <a href="JumpWeg.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:8px; background:radial-gradient(circle at 1px 1px, rgba(139,35,71,0.16) 1.5px, transparent 0) 0 0/18px 18px, #FBEAF0; border:1px solid #F3D3E0; padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.4s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.05);">
+    <a href="JumpWeg.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:24px; background:radial-gradient(circle at 1px 1px, rgba(139,35,71,0.16) 1.5px, transparent 0) 0 0/18px 18px, #FBEAF0; border:1px solid #F3D3E0; padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.4s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.05);">
       <div ref="{{ jumpTextRef }}">
-        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:{{ cardChipsJustify }}; gap:6px; margin-bottom:20px;">
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(139,35,71,0.08); border:1px solid rgba(139,35,71,0.15); color:#8B2347;">SaaS</span>
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(139,35,71,0.08); border:1px solid rgba(139,35,71,0.15); color:#8B2347;">Content Tools</span>
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(139,35,71,0.08); border:1px solid rgba(139,35,71,0.15); color:#8B2347;">Co-Founder</span>
         </div>
         <h3 style="font-size:clamp(22px,3.5vw,30px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; color:#111111; margin:0 0 12px;">JumpWag</h3>
-        <p style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#111111; line-height:1.4; margin:0 0 12px;">Trends are everywhere. Making them make sense for you is the hard part.</p>
-        <p style="font-size:14px; font-weight:300; color:#666666; line-height:1.7; margin:0;">JumpWag surfaces what's trending on TikTok, Instagram, and YouTube Shorts, then helps you figure out how to make it fit your niche, audience, and brand. I was one of three co-founders, handling all of the product design alongside a growth-focused PM and a developer.</p>
-        <div style="display:flex; gap:32px; margin-top:24px;">
+        <p style="font-size:16px; font-weight:600; letter-spacing:-0.01em; color:#111111; line-height:1.4; margin:0 0 12px;">Trends are everywhere. Making them make sense for you is the hard part.</p>
+        <p style="font-size:13.5px; font-weight:300; color:#666666; line-height:1.7; margin:0;">JumpWag surfaces what's trending on TikTok, Instagram, and YouTube Shorts, then helps you figure out how to make it fit your niche, audience, and brand. I was one of three co-founders, handling all of the product design alongside a growth-focused PM and a developer.</p>
+        <div style="display:flex; justify-content:{{ cardChipsJustify }}; gap:32px; margin-top:24px;">
           <div>
             <div style="font-size:12px; color:#999999; margin-bottom:2px;">Status</div>
             <div style="font-size:18px; font-weight:800; letter-spacing:-0.02em; color:#111111;">Live · Currently paused</div>
           </div>
         </div>
       </div>
-      <div style="display:flex; align-items:center; justify-content:flex-end; order:{{ cardImageOrder }};">
+      <div style="display:flex; align-items:center; justify-content:{{ cardImgJustify }}; order:{{ cardImageOrder }};">
         <div style="height:{{ jumpImgHeight }}; border-radius:24px; flex-shrink:0; transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:scale(1.08) rotate(-1deg);">
           <img src="assets/jumpweg.jpg" alt="JumpWag homepage with viral trends headline" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
         </div>
@@ -201,12 +228,12 @@
   <section data-reveal="" style="max-width:820px; margin:80px auto 0; padding:0 24px; text-align:center; opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s cubic-bezier(.16,1,.3,1);">
     <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--eyebrow-bg); padding:6px 16px; border-radius:100px; margin-bottom:20px;">More Work</div>
     <h2 style="font-size:clamp(26px,4.5vw,38px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; margin:0 0 32px; color:var(--text);">Other projects</h2>
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; text-align:left;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; text-align:{{ cardsTextAlign }};">
       <a href="Sweatville.dc.html" data-reveal="" style="background:var(--card-bg); border:1px solid var(--card-border); border-radius:16px; padding:28px; opacity:0; transform:translateY(24px); transition:transform 0.5s cubic-bezier(.16,1,.3,1), box-shadow 0.25s ease, background 0.3s, border-color 0.3s, opacity 0.5s ease; text-decoration:none;" style-hover="transform:translateY(-4px) scale(1.015); box-shadow:0 10px 30px rgba(0,0,0,0.18);">
         <div style="font-size:12px; font-weight:500; color:var(--text-muted); margin-bottom:8px; line-height:1.5;">Fitness · Mobile</div>
         <div style="font-size:22px; font-weight:800; letter-spacing:-0.03em; color:var(--text); margin-bottom:10px; line-height:1.2;">Sweatville</div>
         <p style="font-size:13px; font-weight:300; color:var(--text-muted); line-height:1.6; margin:0 0 16px;">A gym membership app that lets members check in, track visits across branches, and monitor their measurements, all from one place.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:{{ cardChipsJustify }}; gap:6px;">
           <span style="font-size:11px; font-weight:500; color:var(--text-muted); padding:3px 10px; border-radius:100px; border:1px solid var(--tag-border);">Mobile UI</span>
           <span style="font-size:11px; font-weight:500; color:var(--text-muted); padding:3px 10px; border-radius:100px; border:1px solid var(--tag-border);">Product Design</span>
         </div>
@@ -215,7 +242,7 @@
         <div style="font-size:12px; font-weight:500; color:var(--text-muted); margin-bottom:8px; line-height:1.5;">Concept · Early stage (paused)</div>
         <div style="font-size:22px; font-weight:800; letter-spacing:-0.03em; color:var(--text); margin-bottom:10px; line-height:1.2;">Bellavi</div>
         <p style="font-size:13px; font-weight:300; color:var(--text-muted); line-height:1.6; margin:0 0 16px;">A productivity app that turns your goals into an RPG story. Your big goal becomes an “epic mission,” broken into small quests that build toward it.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+        <div style="display:flex; flex-wrap:wrap; justify-content:{{ cardChipsJustify }}; gap:6px;">
           <span style="font-size:11px; font-weight:500; color:var(--text-muted); padding:3px 10px; border-radius:100px; border:1px solid var(--tag-border);">Concept</span>
           <span style="font-size:11px; font-weight:500; color:var(--text-muted); padding:3px 10px; border-radius:100px; border:1px solid var(--tag-border);">Product Design</span>
         </div>
@@ -243,7 +270,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { dark: (typeof localStorage !== 'undefined' && localStorage.getItem('sophie-theme') === 'light') ? false : true, isMobile: false, pageEnter: false, cardHeights: {} };
+  state = { dark: (typeof localStorage !== 'undefined' && localStorage.getItem('sophie-theme') === 'light') ? false : true, isMobile: false, pageEnter: false, menuOpen: false, showTop: false, cardHeights: {} };
   fertTextRef = React.createRef();
   fanTextRef = React.createRef();
   jumpTextRef = React.createRef();
@@ -251,7 +278,7 @@ class Component extends DCLogic {
   componentDidMount() {
     this.mq = window.matchMedia('(max-width: 680px)');
     this.setState({ isMobile: this.mq.matches });
-    this.mqHandler = (e) => this.setState({ isMobile: e.matches });
+    this.mqHandler = (e) => this.setState({ isMobile: e.matches, menuOpen: false });
     this.mq.addEventListener('change', this.mqHandler);
     this.initMotion();
     this.measureCards();
@@ -352,6 +379,10 @@ class Component extends DCLogic {
     const varString = Object.entries(vars).map(([k, v]) => `${k}:${v}`).join(';');
     const h = this.state.cardHeights || {};
     return {
+      menuOpen: !!this.state.menuOpen,
+      menuClosed: !this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
       showTopOpacity: this.state.showTop ? 1 : 0,
       showTopPointer: this.state.showTop ? 'auto' : 'none',
       showTopScale: this.state.showTop ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.9)',
@@ -361,6 +392,10 @@ class Component extends DCLogic {
       knobTransform: dark ? 'translateX(0)' : 'translateX(26px)',
       rootStyle: `${varString};min-height:100vh;overflow-x:hidden;background:var(--bg);color:var(--text);transition:background 0.3s ease,color 0.3s ease;`,
       toggleTheme: () => this.setState(s => { const next = !s.dark; try { localStorage.setItem('sophie-theme', next ? 'dark' : 'light'); } catch (e) {} return { dark: next }; }),
+      cardsTextAlign: this.state.isMobile ? 'center' : 'left',
+      cardChipsJustify: this.state.isMobile ? 'center' : 'flex-start',
+      cardImgJustify: this.state.isMobile ? 'center' : 'flex-end',
+      isMobile: this.state.isMobile,
       isDesktop: !this.state.isMobile,
       cardImageOrder,
       overlayOpacity: this.state.pageEnter ? 0 : 1,
