@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fertitude Case Study — Sophie Livingstone</title>
+<meta name="description" content="How Sophie Livingstone redesigned Fertitude, a femtech app, end to end — period tracking, an embedded AI assistant, expert consultations, and community.">
+<meta property="og:title" content="Fertitude Case Study — Sophie Livingstone">
+<meta property="og:description" content="How Sophie Livingstone redesigned Fertitude, a femtech app, end to end — period tracking, an embedded AI assistant, expert consultations, and community.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sophie-portfolio.vercel.app/fertitude">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #111111; font-family: 'Nunito Sans', 'DM Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; transition: background 0.3s ease; }
+    ::selection { background: rgba(139,35,71,0.4); color: #FFFFFF; }
+    a { color: inherit; }
+  </style>
+  <script src="./image-slot.js"></script>
+</helmet>
+
+<div style="{{ rootStyle }}">
+  <div style="position:fixed; inset:0; z-index:9999; background:var(--bg); opacity:{{ overlayOpacity }}; pointer-events:none; transition:opacity 0.4s ease;"></div>
+
+  <button onClick="{{ scrollToTop }}" aria-label="Back to top" style="position:fixed; right:24px; bottom:24px; z-index:500; width:44px; height:44px; border-radius:100px; border:none; background:var(--text); color:var(--bg); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.28); opacity:{{ showTopOpacity }}; transform:{{ showTopScale }}; transition:opacity 0.25s ease, transform 0.25s ease; pointer-events:{{ showTopPointer }};">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+  </button>
+
+  <nav style="position:sticky; top:12px; z-index:50; display:flex; justify-content:center; align-items:center; gap:10px; padding:0 16px;">
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="flex-shrink:0; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
+          <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
+            <sc-if value="{{ dark }}" hint-placeholder-val="{{ true }}">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F0A0BE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3.5 Q11 4.5 11 12 Q11 19.5 18.5 20.5 Q13 22.5 8.5 18.5 Q4 14.5 6 8.5 Q8 3 15 3.5 Z"></path><circle cx="9" cy="9" r="0.6" fill="#F0A0BE"></circle><circle cx="7.5" cy="13" r="0.5" fill="#F0A0BE"></circle></svg>
+            </sc-if>
+            <sc-if value="{{ light }}" hint-placeholder-val="{{ false }}">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B2347" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5 L12 5"></path><path d="M12 19 L12 21.5"></path><path d="M2.5 12 L5 12"></path><path d="M19 12 L21.5 12"></path><path d="M5 5 L6.8 6.8"></path><path d="M17.2 17.2 L19 19"></path><path d="M19 5 L17.2 6.8"></path><path d="M6.8 17.2 L5 19"></path></svg>
+            </sc-if>
+          </div>
+        </button>
+      </sc-if>
+    <div style="display:flex; align-items:center; background:var(--nav-bg); backdrop-filter:blur(16px); border:1px solid var(--nav-border); border-radius:100px; padding:6px 4px 6px 10px; box-shadow:0 2px 16px rgba(0,0,0,0.3); max-width:100%; overflow-x:auto; gap:2px; transition:background 0.3s ease, border-color 0.3s ease;">
+      <a href="Portfolio.dc.html" style="display:flex; align-items:center; gap:6px; margin-right:10px; flex-shrink:0; text-decoration:none;">
+        <span style="width:6px; height:6px; border-radius:100px; background:#3EC46D; flex-shrink:0;"></span>
+        <span style="font-size:11px; font-weight:800; letter-spacing:-0.02em; color:var(--text); white-space:nowrap;">Sophie<span style="color:var(--accent);">.</span></span>
+      </a>
+      <span style="width:1px; height:12px; background:var(--divider); flex-shrink:0;"></span>
+      <div style="display:flex; align-items:center; gap:0; flex-shrink:0;">
+        <a href="Portfolio.dc.html#work" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Work</a>
+        <a href="About.dc.html" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">About</a>
+        <a href="Portfolio.dc.html#contact" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Contact</a>
+      </div>
+      <a href="About.dc.html#resume" style="font-size:10.5px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:6px 10px; border-radius:100px; white-space:nowrap; flex-shrink:0; transition:background 0.2s; text-decoration:none;" style-hover="background:#6E1B39;">Resume</a>
+    </div>
+  </nav>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="position:absolute; left:24px; top:14px; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; z-index:51; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
+      <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
+        <sc-if value="{{ dark }}" hint-placeholder-val="{{ true }}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F0A0BE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3.5 Q11 4.5 11 12 Q11 19.5 18.5 20.5 Q13 22.5 8.5 18.5 Q4 14.5 6 8.5 Q8 3 15 3.5 Z"></path><circle cx="9" cy="9" r="0.6" fill="#F0A0BE"></circle><circle cx="7.5" cy="13" r="0.5" fill="#F0A0BE"></circle></svg>
+        </sc-if>
+        <sc-if value="{{ light }}" hint-placeholder-val="{{ false }}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B2347" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5 L12 5"></path><path d="M12 19 L12 21.5"></path><path d="M2.5 12 L5 12"></path><path d="M19 12 L21.5 12"></path><path d="M5 5 L6.8 6.8"></path><path d="M17.2 17.2 L19 19"></path><path d="M19 5 L17.2 6.8"></path><path d="M6.8 17.2 L5 19"></path></svg>
+        </sc-if>
+      </div>
+    </button>
+  </sc-if>
+
+  <div style="max-width:900px; margin:0 auto; padding:20px 24px 0;">
+    <a href="Portfolio.dc.html#work" style="display:inline-flex; align-items:center; gap:6px; font-size:13px; font-weight:700; color:var(--text-muted); text-decoration:none;" style-hover="color:var(--proj);">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"></path><path d="M12 19l-7-7 7-7"></path></svg>
+      Back to work
+    </a>
+  </div>
+
+  <section style="max-width:820px; margin:0 auto; padding:32px 24px 0; text-align:center;" data-reveal="">
+    <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--proj); background:var(--proj-tint); padding:6px 16px; border-radius:100px; margin-bottom:22px;">Case Study — Product Design</div>
+    <h1 style="font-size:clamp(30px,5.5vw,48px); font-weight:800; letter-spacing:-0.035em; line-height:1.15; margin:0 0 20px; color:var(--text);">Redesigning Fertitude from the ground up</h1>
+    <p style="font-size:17px; font-weight:300; color:var(--text-muted); line-height:1.7; max-width:620px; margin:0 auto 32px;">A full product redesign for a femtech app built around reproductive health.</p>
+
+    <div style="{{ statRowStyle }}">
+      <div style="{{ statItemStyle }}">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Role</div>
+        <div style="font-size:14px; font-weight:700; color:var(--text);">Sole Product Designer</div>
+      </div>
+      <sc-if value="{{ showDivider }}" hint-placeholder-val="{{ true }}"><span style="width:1px; height:30px; background:var(--divider);"></span></sc-if>
+      <div style="{{ statItemStyle }}">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Timeline</div>
+        <div style="font-size:14px; font-weight:700; color:var(--text);">1.5 years</div>
+      </div>
+      <sc-if value="{{ showDivider }}" hint-placeholder-val="{{ true }}"><span style="width:1px; height:30px; background:var(--divider);"></span></sc-if>
+      <div style="{{ statItemStyle }}">
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Status</div>
+        <div style="display:inline-flex; align-items:center; gap:6px; font-size:14px; font-weight:700; color:var(--text);"><span style="width:6px; height:6px; border-radius:100px; background:#3EC46D;"></span>Live</div>
+      </div>
+    </div>
+
+    <div style="position:relative; max-width:640px; margin:0 auto; transform:rotate(-1.5deg);">
+      <img src="assets/fertitude-hero.jpg" alt="Fertitude period tracker hero mockup across three phases" style="width:100%; aspect-ratio:3276/2400; object-fit:contain; border-radius:20px; box-shadow:0 30px 60px rgba(0,0,0,0.25); display:block;">
+    </div>
+  </section>
+
+  <section style="max-width:680px; margin:96px auto 0; padding:0 24px;" data-reveal="">
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:24px;">
+      <h2 style="font-size:22px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Context</h2>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+    <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 20px;">Fertitude is a reproductive health app with six core features:</p>
+    <div style="display:flex; flex-wrap:wrap; gap:8px; justify-content:center;">
+      <span style="font-size:13px; font-weight:600; color:var(--proj); background:var(--proj-tint); padding:7px 16px; border-radius:100px;">Period tracking</span>
+      <span style="font-size:13px; font-weight:600; color:var(--proj); background:var(--proj-tint); padding:7px 16px; border-radius:100px;">AI assistant (Kiki)</span>
+      <span style="font-size:13px; font-weight:600; color:var(--proj); background:var(--proj-tint); padding:7px 16px; border-radius:100px;">Expert doctor chat</span>
+      <span style="font-size:13px; font-weight:600; color:var(--proj); background:var(--proj-tint); padding:7px 16px; border-radius:100px;">Community groups</span>
+      <span style="font-size:13px; font-weight:600; color:var(--proj); background:var(--proj-tint); padding:7px 16px; border-radius:100px;">Learning programs</span>
+      <span style="font-size:13px; font-weight:600; color:var(--proj); background:var(--proj-tint); padding:7px 16px; border-radius:100px;">Articles</span>
+    </div>
+  </section>
+
+  <section style="max-width:680px; margin:72px auto 0; padding:0 24px;" data-reveal="">
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:24px;">
+      <h2 style="font-size:22px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">The Problem</h2>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+    <p style="font-size:14px; font-weight:600; color:var(--text-muted); margin:0 0 24px;">Three real problems drove the redesign, not just a visual refresh:</p>
+    <div style="display:flex; flex-direction:column; gap:22px;">
+      <div style="display:flex; gap:16px;">
+        <span style="font-size:14px; font-weight:800; color:var(--proj); flex-shrink:0; width:20px;">01</span>
+        <p style="font-size:15.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;"><strong style="color:var(--text); font-weight:700;">Retention was weak.</strong> Users weren't finding enough reasons to come back.</p>
+      </div>
+      <div style="display:flex; gap:16px;">
+        <span style="font-size:14px; font-weight:800; color:var(--proj); flex-shrink:0; width:20px;">02</span>
+        <p style="font-size:15.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;"><strong style="color:var(--text); font-weight:700;">Kiki was isolated.</strong> She only lived on her own chat screen, with no presence anywhere else in the product.</p>
+      </div>
+      <div style="display:flex; gap:16px;">
+        <span style="font-size:14px; font-weight:800; color:var(--proj); flex-shrink:0; width:20px;">03</span>
+        <p style="font-size:15.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;"><strong style="color:var(--text); font-weight:700;">The visual language didn't fit the audience.</strong> Reproductive health is personal. The app needed to feel like a safe space, not a clinical dashboard.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:680px; margin:72px auto 0; padding:0 24px;" data-reveal="">
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:24px;">
+      <h2 style="font-size:22px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Approach</h2>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+    <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 28px;">The approach started with an audit of the existing app, a competitor analysis across femtech apps, and close, ongoing collaboration with the PM.</p>
+    <div style="position:relative;">
+      <div style="overflow:hidden; border-radius:16px; border:1px solid var(--divider);">
+        <div style="display:flex; transition:transform 0.35s cubic-bezier(.16,1,.3,1); transform:{{ auditTransform }};">
+          <div style="flex:0 0 100%; min-width:0;"><img src="assets/fert-audit-1.png" alt="Audit finding 1 of 5: shorten the onboarding flow" style="width:100%; aspect-ratio:737/416; object-fit:contain; background:var(--card-bg); display:block;"></div>
+          <div style="flex:0 0 100%; min-width:0;"><img src="assets/fert-audit-2.png" alt="Audit finding 2 of 5: fix confusing profile completion" style="width:100%; aspect-ratio:737/416; object-fit:contain; background:var(--card-bg); display:block;"></div>
+          <div style="flex:0 0 100%; min-width:0;"><img src="assets/fert-audit-3.png" alt="Audit finding 3 of 5: fix broken personalization and allow progress saving" style="width:100%; aspect-ratio:737/416; object-fit:contain; background:var(--card-bg); display:block;"></div>
+          <div style="flex:0 0 100%; min-width:0;"><img src="assets/fert-audit-4.png" alt="Audit finding 4 of 5: set clearer expectations on consultations" style="width:100%; aspect-ratio:737/416; object-fit:contain; background:var(--card-bg); display:block;"></div>
+          <div style="flex:0 0 100%; min-width:0;"><img src="assets/fert-audit-5.png" alt="Audit finding 5 of 5: combine plan status and pricing" style="width:100%; aspect-ratio:737/416; object-fit:contain; background:var(--card-bg); display:block;"></div>
+        </div>
+      </div>
+      <button onClick="{{ prevAudit }}" aria-label="Previous slide" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:100px; border:none; background:rgba(0,0,0,0.55); color:#FFFFFF; display:flex; align-items:center; justify-content:center; cursor:pointer;" style-hover="background:rgba(0,0,0,0.75);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+      </button>
+      <button onClick="{{ nextAudit }}" aria-label="Next slide" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); width:36px; height:36px; border-radius:100px; border:none; background:rgba(0,0,0,0.55); color:#FFFFFF; display:flex; align-items:center; justify-content:center; cursor:pointer;" style-hover="background:rgba(0,0,0,0.75);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+      </button>
+      <div style="display:flex; justify-content:center; gap:6px; margin-top:14px;">
+        <sc-for list="{{ auditDots }}" as="dot" hint-placeholder-count="3">
+          <button onClick="{{ dot.onClick }}" aria-label="Go to slide" style="width:7px; height:7px; border-radius:100px; border:none; padding:0; cursor:pointer; background:{{ dot.color }};"></button>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:680px; margin:72px auto 0; padding:0 24px;" data-reveal="">
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:24px;">
+      <h2 style="font-size:22px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">The Bold Decision — The Period Tracker</h2>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+    <p style="font-size:19px; font-weight:600; font-style:italic; color:var(--proj); line-height:1.5; margin:0 0 24px; letter-spacing:-0.01em;">Every period tracker uses a circle. We broke it, deliberately.</p>
+    <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 28px;">Users found the wheel's back-and-forth date navigation confusing. The team also wanted to move away from a pattern used by nearly every app in the category. The fix: a swipeable card layout borrowed from music apps like Spotify. Each card represents a phase. A progress bar shows exactly where the user is in their cycle.</p>
+
+    <div ref="{{ periodRef }}" onPointerDown="{{ startPeriodDrag }}" onKeyDown="{{ keyPeriodDrag }}" role="slider" tabindex="0" aria-label="Drag to compare before and after period tracker" aria-valuenow="{{ periodPos }}" aria-valuemin="0" aria-valuemax="100" style="position:relative; width:100%; aspect-ratio:16/10; border-radius:16px; overflow:hidden; cursor:ew-resize; touch-action:none; user-select:none;">
+      <img src="assets/fert-tracker-after.jpg" alt="After — redesigned swipeable period card layout" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:var(--bg-soft, #F4F2F5);">
+      <div style="position:absolute; inset:0; clip-path:{{ periodClip }};">
+        <img src="assets/fert-tracker-before.jpg" alt="Before — original circular period tracker" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain; background:var(--bg-soft, #F4F2F5);">
+      </div>
+      <div style="position:absolute; top:0; bottom:0; left:{{ periodPos }}%; width:2px; background:#FFFFFF; box-shadow:0 0 8px rgba(0,0,0,0.4); pointer-events:none;"></div>
+      <div style="position:absolute; top:50%; left:{{ periodPos }}%; transform:translate(-50%,-50%) scale({{ periodHandleScale }}); transition:transform 0.18s cubic-bezier(.34,1.56,.64,1); width:34px; height:34px; border-radius:100px; background:#FFFFFF; box-shadow:0 4px 14px rgba(0,0,0,0.3); display:flex; align-items:center; justify-content:center; pointer-events:none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--proj)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-5 6 5 6"></path><path d="M16 6l5 6-5 6"></path></svg>
+      </div>
+      <span style="position:absolute; top:12px; left:12px; font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#FFFFFF; background:rgba(0,0,0,0.5); padding:4px 10px; border-radius:100px; pointer-events:none;">Before</span>
+      <span style="position:absolute; top:12px; right:12px; font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#FFFFFF; background:rgba(0,0,0,0.5); padding:4px 10px; border-radius:100px; pointer-events:none;">After</span>
+    </div>
+    <p style="font-size:12px; font-weight:600; color:var(--text-muted); text-align:center; margin:10px 0 0;">Drag to compare</p>
+  </section>
+
+  <section style="max-width:680px; margin:72px auto 0; padding:40px 24px; background:var(--proj-tint); border-radius:24px;" data-reveal="">
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:24px;">
+      <h2 style="font-size:22px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Visual Language</h2>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+    <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 28px;">The palette shifted toward softer, more pastel tones. It was a deliberate choice to make something clinical feel like a safe space for the girls.</p>
+    <div ref="{{ paletteRef }}" onPointerDown="{{ startPaletteDrag }}" onKeyDown="{{ keyPaletteDrag }}" role="slider" tabindex="0" aria-label="Drag to compare before and after visual language" aria-valuenow="{{ palettePos }}" aria-valuemin="0" aria-valuemax="100" style="position:relative; width:100%; aspect-ratio:2416/560; border-radius:16px; overflow:hidden; cursor:ew-resize; touch-action:none; user-select:none; background:#FFFFFF;">
+      <img src="assets/fert-palette-after.png" alt="After — new pastel visual language" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain;">
+      <div style="position:absolute; inset:0; clip-path:{{ paletteClip }};">
+        <img src="assets/fert-palette-before.png" alt="Before — original visual language" style="position:absolute; inset:0; width:100%; height:100%; object-fit:contain;">
+      </div>
+      <div style="position:absolute; top:0; bottom:0; left:{{ palettePos }}%; width:2px; background:#FFFFFF; box-shadow:0 0 8px rgba(0,0,0,0.4); pointer-events:none;"></div>
+      <div style="position:absolute; top:50%; left:{{ palettePos }}%; transform:translate(-50%,-50%) scale({{ paletteHandleScale }}); transition:transform 0.18s cubic-bezier(.34,1.56,.64,1); width:34px; height:34px; border-radius:100px; background:#FFFFFF; box-shadow:0 4px 14px rgba(0,0,0,0.3); display:flex; align-items:center; justify-content:center; pointer-events:none;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--proj)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-5 6 5 6"></path><path d="M16 6l5 6-5 6"></path></svg>
+      </div>
+      <span style="position:absolute; top:12px; left:12px; font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#FFFFFF; background:rgba(0,0,0,0.5); padding:4px 10px; border-radius:100px; pointer-events:none;">Before</span>
+      <span style="position:absolute; top:12px; right:12px; font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:#FFFFFF; background:rgba(0,0,0,0.5); padding:4px 10px; border-radius:100px; pointer-events:none;">After</span>
+    </div>
+  </section>
+
+  <section style="max-width:680px; margin:72px auto 0; padding:0 24px;" data-reveal="">
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:24px;">
+      <h2 style="font-size:22px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Fixing Real Friction</h2>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+    <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 10px;"><strong style="color:var(--text); font-weight:700;">A product tour, built from support feedback.</strong> Customer support shared that some users, especially less tech-savvy ones, weren't always sure how to use certain features or where to find things in the app. I designed a product tour to walk new users through the app's core features from day one, and made sure it could be restarted at any point if someone needed a refresher.</p>
+    <div style="display:flex; gap:14px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding-bottom:6px; margin-bottom:28px;">
+      <div style="flex:0 0 180px; scroll-snap-align:start;">
+        <div style="padding:20px; background:#FFFFFF; border-radius:16px;">
+          <image-slot id="fert-tour-1" src="assets/fert-tour-1.jpg" shape="rounded" radius="16" fit="contain" style="width:100%; aspect-ratio:957/2028; background:#FFFFFF;" placeholder="Product tour — step 1"></image-slot>
+        </div>
+      </div>
+      <div style="flex:0 0 180px; scroll-snap-align:start;">
+        <div style="padding:20px; background:#FFFFFF; border-radius:16px;">
+          <image-slot id="fert-tour-2" src="assets/fert-tour-2.jpg" shape="rounded" radius="16" fit="contain" style="width:100%; aspect-ratio:957/2028; background:#FFFFFF;" placeholder="Product tour — step 2"></image-slot>
+        </div>
+      </div>
+      <div style="flex:0 0 180px; scroll-snap-align:start;">
+        <div style="padding:20px; background:#FFFFFF; border-radius:16px;">
+          <image-slot id="fert-tour-3" src="assets/fert-tour-3.jpg" shape="rounded" radius="16" fit="contain" style="width:100%; aspect-ratio:957/2028; background:#FFFFFF;" placeholder="Product tour — step 3"></image-slot>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 28px;"><strong style="color:var(--text); font-weight:700;">A consultation flow that stopped starting from zero.</strong> Booking a doctor used to mean explaining your whole situation from scratch. I redesigned it around condition categories instead. Now users browse by what they're actually dealing with (PCOS, pregnancy, thyroid, weight loss, and more), so both sides start already knowing the context. I also designed the consent flow that lets users share health records and cycle history with a doctor mid-chat, so doctors can check history instead of re-asking questions already answered elsewhere.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:32px; margin-bottom:16px;">
+      <div>
+        <div style="padding:20px; max-width:220px; margin:0 auto; background:#FFFFFF; border-radius:16px;">
+          <image-slot id="fert-consult-before" shape="rounded" radius="16" fit="contain" style="width:100%; aspect-ratio:313/664; background:#FFFFFF;" placeholder="Before — generic book a consultation screen"></image-slot>
+        </div>
+        <p style="font-size:12px; font-weight:600; color:var(--text-muted); text-align:center; margin:10px 0 0;">Before</p>
+      </div>
+      <div>
+        <div style="padding:20px; max-width:220px; margin:0 auto; background:#FFFFFF; border-radius:16px;">
+          <image-slot id="fert-consult-after" shape="rounded" radius="16" fit="contain" style="width:100%; aspect-ratio:313/664; background:#FFFFFF;" placeholder="After — condition-category browsing screen"></image-slot>
+        </div>
+        <p style="font-size:12px; font-weight:600; color:var(--text-muted); text-align:center; margin:10px 0 0;">After</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:680px; margin:72px auto 0; padding:0 24px;" data-reveal="">
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:24px;">
+      <h2 style="font-size:22px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Designing for the Business, Not Just the User</h2>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+    <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 24px;">The redesign changed more than how Fertitude looked. It changed what the business could charge for. Before, paid consultations were the only real revenue stream. Working with the product and business teams, I helped identify and design several new points of value:</p>
+    <div style="display:flex; flex-direction:column; gap:16px; margin-bottom:28px;">
+      <p style="font-size:15.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;"><strong style="color:var(--text); font-weight:700;">Kiki, gated by usage.</strong> Once she became central to the app, her chat access could carry a session limit: free up to a point, then part of a paid plan.</p>
+      <p style="font-size:15.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;"><strong style="color:var(--text); font-weight:700;">Programs, previewed instead of free.</strong> Paired with better content from the medical team, the redesign made it possible to open the first chapter or two, then paywall the rest.</p>
+      <p style="font-size:15.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;"><strong style="color:var(--text); font-weight:700;">Community, partly gated.</strong> Some spaces stayed open, but full discussion access moved behind the paywall.</p>
+      <p style="font-size:15.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;"><strong style="color:var(--text); font-weight:700;">Smarter upgrade prompts.</strong> With Kiki embedded throughout, I designed clearer moments to surface upgrades and improved the churn-reduction flow with more direct copy.</p>
+      <p style="font-size:15.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;"><strong style="color: var(--text); font-weight: 700;">Cross-feature recommendations.</strong> Before, users fell into one of two lanes: talk to a doctor, or track a period. With Kiki front and center, I helped map flows where she could recommend a relevant article or program based on what a user was doing. Features started connecting instead of sitting in isolation.&nbsp;</p>
+    </div>
+    <div style="display:flex; gap:14px; overflow-x:auto; -webkit-overflow-scrolling:touch; scroll-snap-type:x mandatory; padding-bottom:6px;">
+      <div style="flex:0 0 180px; scroll-snap-align:start;">
+        <div style="padding:20px; background:#FFFFFF; border-radius:16px;">
+          <image-slot id="fert-biz-limit" shape="rounded" radius="16" fit="contain" style="width:100%; aspect-ratio:957/2028; background:#FFFFFF;" placeholder="Kiki's session-limit indicator"></image-slot>
+        </div>
+        <p style="font-size:12px; font-weight:600; color:var(--text-muted); text-align:center; margin:10px 0 0;">Kiki paywall</p>
+      </div>
+      <div style="flex:0 0 180px; scroll-snap-align:start;">
+        <div style="padding:20px; background:#FFFFFF; border-radius:16px;">
+          <image-slot id="fert-biz-preview" shape="rounded" radius="16" fit="contain" style="width:100%; aspect-ratio:957/2028; background:#FFFFFF;" placeholder="Program free-preview screen"></image-slot>
+        </div>
+        <p style="font-size:12px; font-weight:600; color:var(--text-muted); text-align:center; margin:10px 0 0;">New programs</p>
+      </div>
+      <div style="flex:0 0 180px; scroll-snap-align:start;">
+        <div style="padding:20px; background:#FFFFFF; border-radius:16px;">
+          <image-slot id="fert-biz-upgrade" shape="rounded" radius="16" fit="contain" style="width:100%; aspect-ratio:957/2028; background:#FFFFFF;" placeholder="In-app upgrade prompt"></image-slot>
+        </div>
+        <p style="font-size:12px; font-weight:600; color:var(--text-muted); text-align:center; margin:10px 0 0;">Upgrade prompt</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="max-width:680px; margin:72px auto 0; padding:0 24px;" data-reveal="">
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:24px;">
+      <h2 style="font-size:22px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Outcome</h2>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+    <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 12px;">The redesigned version was successfully launched and well received. Also, due to my contributions in product brainstorming sessions, I was asked to step up to lead the experience squad for 3 months, monitoring engagement metrics and helping scope what came next.</p>
+    <p style="font-size:13px; font-weight:500; font-style:italic; color:var(--proj); line-height:1.6; margin:0;">Note: we decided to migrate our metrics from Mixpanel to PostHog after the relaunch, and since that migration wasn't fully set up at the time of writing this, accurate before/after usage numbers aren't available yet.</p>
+  </section>
+
+  <section style="max-width:680px; margin:72px auto 0; padding:0 24px 96px;" data-reveal="">
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:24px;">
+      <h2 style="font-size:22px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Reflection</h2>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:24px;">
+      <div style="padding:24px; background:var(--proj-tint); border-radius:16px;">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--proj); margin-bottom:10px;">What worked</div>
+        <p style="font-size:15px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;">The audit gave my design decisions a good foundation. I wasn't redesigning "just because," I was solving named problems. <br>My business-model thinking also pushed me to work past "make it look nicer" to "make it more valuable".</p>
+      </div>
+      <div style="padding:24px; background:var(--proj-tint); border-radius:16px;">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--proj); margin-bottom:10px;">What I'd do differently</div>
+        <p style="font-size:15px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;">Push harder for more formal user testing and interviews, both before and after key decisions. Getting more directly involved in hearing from users myself, rather than working from secondhand feedback, would have made certain calls easier to defend and validate.</p>
+      </div>
+    </div>
+  </section>
+
+  <div style="max-width:680px; margin:0 auto; padding:0 24px 96px;">
+    <div style="height:1px; background:var(--divider); margin-bottom:40px;"></div>
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+      <a href="Bellavi.dc.html" style="display:flex; flex-direction:column; text-decoration:none; max-width:45%;" style-hover="opacity:0.7;">
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">← Previous</span>
+        <span style="font-size:15px; font-weight:800; color:var(--text);">Belavi</span>
+      </a>
+      <a href="Portfolio.dc.html#work" style="font-size:12px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:10px 22px; border-radius:100px; text-decoration:none; transition:background 0.2s;" style-hover="background:#6E1B39;">All work</a>
+      <a href="Fanatix.dc.html" style="display:flex; flex-direction:column; align-items:flex-end; text-decoration:none; max-width:45%;" style-hover="opacity:0.7;">
+        <span style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Next →</span>
+        <span style="font-size:15px; font-weight:800; color:var(--text);">Fanatix</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { dark: (typeof localStorage !== 'undefined' && localStorage.getItem('sophie-theme') === 'light') ? false : true, periodPos: 50, palettePos: 50, periodSnap: false, paletteSnap: false, isMobile: false, pageEnter: true, auditIndex: 0 , showTop: false };
+  auditCount = 5;
+  periodRef = React.createRef();
+  paletteRef = React.createRef();
+  dragging = null;
+
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 680px)');
+    this.setState({ isMobile: this.mq.matches });
+    this.mqHandler = (e) => this.setState({ isMobile: e.matches });
+    this.mq.addEventListener('change', this.mqHandler);
+    this._onMove = (e) => this.handleMove(e);
+    this._onUp = () => { this.dragging = null; };
+    window.addEventListener('pointermove', this._onMove);
+    window.addEventListener('pointerup', this._onUp);
+    this.initMotion();
+  }
+
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener('change', this.mqHandler);
+    window.removeEventListener('pointermove', this._onMove);
+    window.removeEventListener('pointerup', this._onUp);
+    this.teardownMotion();
+  }
+
+  initMotion() {
+    requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ pageEnter: true })));
+    setTimeout(() => this.setState({ pageEnter: true }), 300);
+    this._onScroll = () => this.setState({ showTop: window.scrollY > 500 });
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._navClick = (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a || a.target === '_blank') return;
+      const href = a.getAttribute('href') || '';
+      if (!href.includes('.dc.html')) return;
+      e.preventDefault();
+      this.setState({ pageEnter: false });
+      setTimeout(() => { window.location.href = href; }, 380);
+    };
+    document.addEventListener('click', this._navClick);
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0) scale(1)';
+          this._io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      const inView = rect.top < window.innerHeight + 60 && rect.bottom > -60;
+      if (inView) {
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0) scale(1)';
+        return;
+      }
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(26px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s cubic-bezier(.16,1,.3,1)';
+      this._io.observe(el);
+    });
+  }
+
+  teardownMotion() {
+    window.removeEventListener('scroll', this._onScroll);
+    document.removeEventListener('click', this._navClick);
+    if (this._io) this._io.disconnect();
+  }
+
+  handleMove(e) {
+    if (!this.dragging) return;
+    const ref = this.dragging === 'period' ? this.periodRef : this.paletteRef;
+    if (!ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    let pct = ((e.clientX - rect.left) / rect.width) * 100;
+    pct = Math.max(0, Math.min(100, pct));
+    const posKey = this.dragging === 'period' ? 'periodPos' : 'palettePos';
+    const snapKey = this.dragging === 'period' ? 'periodSnap' : 'paletteSnap';
+    const prev = this.state[posKey];
+    if (pct > 46 && pct < 54 && (prev <= 46 || prev >= 54)) {
+      pct = 50;
+      if (navigator.vibrate) navigator.vibrate(8);
+      this.setState({ [snapKey]: true });
+      clearTimeout(this[snapKey + 'Timer']);
+      this[snapKey + 'Timer'] = setTimeout(() => this.setState({ [snapKey]: false }), 180);
+    }
+    this.setState({ [posKey]: pct });
+  }
+
+  startDrag(which) {
+    return (e) => { this.dragging = which; this.handleMove(e); };
+  }
+
+  keyDrag(which) {
+    const posKey = which === 'period' ? 'periodPos' : 'palettePos';
+    return (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); this.setState(s => ({ [posKey]: Math.max(0, s[posKey] - 5) })); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); this.setState(s => ({ [posKey]: Math.min(100, s[posKey] + 5) })); }
+    };
+  }
+
+  renderVals() {
+    const dark = this.state.dark;
+    const vars = dark ? {
+      '--bg': '#111111',
+      '--nav-bg': 'rgba(24,24,24,0.85)',
+      '--nav-border': 'rgba(255,255,255,0.12)',
+      '--toggle-bg': 'rgba(255,255,255,0.06)',
+      '--text': '#F5F3F2',
+      '--text-muted': '#A8A8A8',
+      '--divider': 'rgba(255,255,255,0.15)',
+      '--accent': '#E0729C',
+      '--eyebrow-bg': 'rgba(139,35,71,0.18)',
+      '--card-bg': '#1A1A1A',
+      '--card-border': 'rgba(255,255,255,0.12)',
+      '--proj': '#B29AE0',
+      '--proj-tint': 'rgba(94,67,137,0.18)',
+    } : {
+      '--bg': '#F8F8F7',
+      '--nav-bg': 'rgba(255,255,255,0.88)',
+      '--nav-border': '#E3E3E3',
+      '--toggle-bg': '#FBF0F4',
+      '--text': '#111111',
+      '--text-muted': '#666666',
+      '--divider': '#E3E3E3',
+      '--accent': '#8B2347',
+      '--eyebrow-bg': '#FBF0F4',
+      '--card-bg': '#FFFFFF',
+      '--card-border': '#E3E3E3',
+      '--proj': '#5E4389',
+      '--proj-tint': '#F1ECFA',
+    };
+    const varString = Object.entries(vars).map(([k, v]) => `${k}:${v}`).join(';');
+    return {
+      showTopOpacity: this.state.showTop ? 1 : 0,
+      showTopPointer: this.state.showTop ? 'auto' : 'none',
+      showTopScale: this.state.showTop ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.9)',
+      scrollToTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      dark,
+      light: !dark,
+      knobTransform: dark ? 'translateX(0)' : 'translateX(26px)',
+      rootStyle: `${varString};min-height:100vh;overflow-x:hidden;background:var(--bg);color:var(--text);transition:background 0.3s ease,color 0.3s ease;`,
+      toggleTheme: () => this.setState(s => { const next = !s.dark; try { localStorage.setItem('sophie-theme', next ? 'dark' : 'light'); } catch (e) {} return { dark: next }; }),
+      statRowStyle: this.state.isMobile ? 'display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:44px;' : 'display:flex; align-items:center; justify-content:center; gap:0; flex-wrap:wrap; margin-bottom:44px;',
+      statItemStyle: this.state.isMobile ? 'padding:0 4px; text-align:center;' : 'padding:0 22px; text-align:center;',
+      showDivider: !this.state.isMobile,
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      periodRef: this.periodRef,
+      paletteRef: this.paletteRef,
+      periodPos: this.state.periodPos,
+      palettePos: this.state.palettePos,
+      periodClip: `inset(0 ${100 - this.state.periodPos}% 0 0)`,
+      paletteClip: `inset(0 ${100 - this.state.palettePos}% 0 0)`,
+      periodHandleScale: this.state.periodSnap ? 1.4 : 1,
+      paletteHandleScale: this.state.paletteSnap ? 1.4 : 1,
+      startPeriodDrag: this.startDrag('period'),
+      startPaletteDrag: this.startDrag('palette'),
+      keyPeriodDrag: this.keyDrag('period'),
+      keyPaletteDrag: this.keyDrag('palette'),
+      overlayOpacity: this.state.pageEnter ? 0 : 1,
+      auditTransform: `translateX(-${this.state.auditIndex * 100}%)`,
+      prevAudit: () => this.setState(s => ({ auditIndex: (s.auditIndex - 1 + this.auditCount) % this.auditCount })),
+      nextAudit: () => this.setState(s => ({ auditIndex: (s.auditIndex + 1) % this.auditCount })),
+      auditDots: Array.from({ length: this.auditCount }, (_, i) => ({
+        color: i === this.state.auditIndex ? 'var(--proj)' : 'var(--divider)',
+        onClick: () => this.setState({ auditIndex: i }),
+      })),
+    };
+  }
+}
+
+</script>
+</body>
+</html>

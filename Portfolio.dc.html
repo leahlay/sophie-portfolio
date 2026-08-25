@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sophie Livingstone — Product Designer</title>
+<meta name="description" content="Sophie Livingstone is a product designer working across femtech, sports, and SaaS. See case studies from Fertitude, Fanatix, and JumpWag.">
+<meta property="og:title" content="Sophie Livingstone — Product Designer">
+<meta property="og:description" content="Sophie Livingstone is a product designer working across femtech, sports, and SaaS. See case studies from Fertitude, Fanatix, and JumpWag.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sophie-portfolio.vercel.app/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sophie Livingstone",
+  "alternateName": "Sophia Livingstone",
+  "jobTitle": "Product Designer",
+  "url": "https://sophie-portfolio.vercel.app",
+  "sameAs": ["https://www.linkedin.com/in/sophialivingstone/"],
+  "knowsAbout": ["Product Design", "UI/UX Design", "Mobile Design", "Design Systems"]
+}
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #111111; font-family: 'Nunito Sans', 'DM Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; transition: background 0.3s ease; }
+    ::selection { background: rgba(139,35,71,0.4); color: #FFFFFF; }
+  </style>
+  <script src="./image-slot.js"></script>
+</helmet>
+
+<template id="__bundler_thumbnail" data-bg-color="#111111">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#111111"></rect>
+    <text x="100" y="122" font-family="Nunito Sans, sans-serif" font-size="72" font-weight="800" fill="#F5F3F2" text-anchor="middle">S<tspan fill="#8B2347">.</tspan></text>
+  </svg>
+</template>
+
+<div style="{{ rootStyle }}">
+  <div style="position:fixed; inset:0; z-index:9999; background:var(--bg); opacity:{{ overlayOpacity }}; pointer-events:none; transition:opacity 0.4s ease;"></div>
+
+  <button onClick="{{ scrollToTop }}" aria-label="Back to top" style="position:fixed; right:24px; bottom:24px; z-index:500; width:44px; height:44px; border-radius:100px; border:none; background:var(--text); color:var(--bg); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.28); opacity:{{ showTopOpacity }}; transform:{{ showTopScale }}; transition:opacity 0.25s ease, transform 0.25s ease; pointer-events:{{ showTopPointer }};">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+  </button>
+
+  <nav style="position:sticky; top:12px; z-index:50; display:flex; justify-content:center; align-items:center; gap:10px; padding:0 16px;">
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="flex-shrink:0; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
+          <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
+            <sc-if value="{{ dark }}" hint-placeholder-val="{{ true }}">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F0A0BE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3.5 Q11 4.5 11 12 Q11 19.5 18.5 20.5 Q13 22.5 8.5 18.5 Q4 14.5 6 8.5 Q8 3 15 3.5 Z"></path><circle cx="9" cy="9" r="0.6" fill="#F0A0BE"></circle><circle cx="7.5" cy="13" r="0.5" fill="#F0A0BE"></circle></svg>
+            </sc-if>
+            <sc-if value="{{ light }}" hint-placeholder-val="{{ false }}">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B2347" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5 L12 5"></path><path d="M12 19 L12 21.5"></path><path d="M2.5 12 L5 12"></path><path d="M19 12 L21.5 12"></path><path d="M5 5 L6.8 6.8"></path><path d="M17.2 17.2 L19 19"></path><path d="M19 5 L17.2 6.8"></path><path d="M6.8 17.2 L5 19"></path></svg>
+            </sc-if>
+          </div>
+        </button>
+      </sc-if>
+    <div style="display:flex; align-items:center; background:var(--nav-bg); backdrop-filter:blur(16px); border:1px solid var(--nav-border); border-radius:100px; padding:6px 4px 6px 10px; box-shadow:0 2px 16px rgba(0,0,0,0.3); max-width:100%; overflow-x:auto; gap:2px; transition:background 0.3s ease, border-color 0.3s ease;">
+      <div style="display:flex; align-items:center; gap:6px; margin-right:10px; flex-shrink:0;">
+        <span style="width:6px; height:6px; border-radius:100px; background:#3EC46D; flex-shrink:0;"></span>
+        <span style="font-size:11px; font-weight:800; letter-spacing:-0.02em; color:var(--text); white-space:nowrap;">Sophie<span style="color:var(--accent);">.</span></span>
+      </div>
+      <span style="width:1px; height:12px; background:var(--divider); flex-shrink:0;"></span>
+      <div style="display:flex; align-items:center; gap:0; flex-shrink:0;">
+        <a href="#work" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Work</a>
+        <a href="About.dc.html" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">About</a>
+        <a href="#contact" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Contact</a>
+      </div>
+      <a href="About.dc.html#resume" style="font-size:10.5px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:6px 10px; border-radius:100px; white-space:nowrap; flex-shrink:0; transition:background 0.2s; text-decoration:none;" style-hover="background:#6E1B39;">Resume</a>
+    </div>
+  </nav>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="position:absolute; left:24px; top:14px; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; z-index:51; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
+      <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
+        <sc-if value="{{ dark }}" hint-placeholder-val="{{ true }}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F0A0BE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3.5 Q11 4.5 11 12 Q11 19.5 18.5 20.5 Q13 22.5 8.5 18.5 Q4 14.5 6 8.5 Q8 3 15 3.5 Z"></path><circle cx="9" cy="9" r="0.6" fill="#F0A0BE"></circle><circle cx="7.5" cy="13" r="0.5" fill="#F0A0BE"></circle></svg>
+        </sc-if>
+        <sc-if value="{{ light }}" hint-placeholder-val="{{ false }}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B2347" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5 L12 5"></path><path d="M12 19 L12 21.5"></path><path d="M2.5 12 L5 12"></path><path d="M19 12 L21.5 12"></path><path d="M5 5 L6.8 6.8"></path><path d="M17.2 17.2 L19 19"></path><path d="M19 5 L17.2 6.8"></path><path d="M6.8 17.2 L5 19"></path></svg>
+        </sc-if>
+      </div>
+    </button>
+  </sc-if>
+
+  <section style="max-width:680px; margin:0 auto; padding:clamp(56px,10vw,80px) 24px 48px; text-align:center; display:flex; flex-direction:column; align-items:center; position:relative;">
+    <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--eyebrow-bg); padding:6px 16px; border-radius:100px; margin-bottom:24px;">Product Designer</div>
+    <h1 style="font-size:clamp(32px,6vw,54px); font-weight:800; letter-spacing:-0.035em; line-height:1.1; margin:0 0 24px; color:var(--text);">People before pixels.</h1>
+    <p style="font-size:17px; font-weight:300; color:var(--text-muted); line-height:1.7; max-width:460px; margin:0 0 32px;">Five years in marketing before design taught me to think about the person before the pixel, every time.</p>
+    <a href="#work" style="display:inline-flex; align-items:center; gap:8px; font-size:15px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:14px 30px; border-radius:100px; transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease, background 0.2s ease; text-decoration:none;" style-hover="background:#6E1B39; transform:translateY(-4px) scale(1.04); box-shadow:0 14px 30px rgba(139,35,71,0.4);">See my work ↓</a>
+
+    <div style="position:relative; width:220px; height:220px; margin-top:48px; flex-shrink:0;">
+      <div style="width:100%; height:100%; border-radius:50%; overflow:hidden; box-shadow:0 0 0 4px var(--bg), 0 0 0 6px rgba(139,35,71,0.5), 0 24px 50px rgba(0,0,0,0.3); background:#1A1A1A; transition:box-shadow 0.3s ease;">
+        <img src="assets/me.png" alt="Portrait of Sophie" style="height:100%; object-fit:contain; object-position:center 8%; width:100%">
+      </div>
+      
+      <svg style="position:absolute; top:2px; left:-4px; width:26px; height:26px; transform:rotate(200deg) scaleX(-1);" viewBox="0 0 36 36" fill="none" stroke="var(--doodle)" stroke-width="1.8" stroke-linecap="round"><path d="M4 20 Q14 4 30 8"></path><path d="M22 5 L30 8 L27 16"></path></svg>
+      <svg style="position: absolute; top: 8px; right: -2px; width: 24px; height: 24px; transform: rotate(178deg)" viewBox="0 0 36 36" fill="none" stroke="var(--doodle)" stroke-width="1.8" stroke-linecap="round"><path d="M4 20 Q14 4 30 8"></path><path d="M22 5 L30 8 L27 16"></path></svg>
+      
+      
+      <span style="position: absolute; bottom: -34px; left: 50%; transform: translateX(-50%) rotate(-3deg); display: flex; align-items: center; gap: 5px; font-family: 'Nunito Sans',cursive; font-size: 14px; font-weight: 600; color: var(--doodle); white-space: nowrap">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--doodle)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 C6 2 2 6 2 11.5 C2 16 6 19 11 19 C11.8 19 12 18.4 12 18 C12 17.6 11.8 17.3 11.5 17 C11.2 16.7 11 16.4 11 16 C11 15.4 11.5 15 12 15 L14 15 C18 15 22 12.5 22 8.5 C22 4.5 17.5 2 12 2 Z"></path><circle cx="7" cy="9" r="1" fill="var(--doodle)"></circle><circle cx="11" cy="6.5" r="1" fill="var(--doodle)"></circle><circle cx="16" cy="7" r="1" fill="var(--doodle)"></circle><circle cx="18" cy="11" r="1" fill="var(--doodle)"></circle></svg>
+        hobbyist ✦
+      </span>
+      <span style="position:absolute; top:-10px; left:-46px; display:flex; align-items:center; gap:5px; font-family:'Nunito Sans',cursive; font-size:14px; font-weight:600; color:var(--doodle); transform:rotate(-8deg); white-space:nowrap;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--doodle)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9 L6 3 L9 8"></path><path d="M20 9 L18 3 L15 8"></path><path d="M4 9 Q4 18 12 18 Q20 18 20 9 Q20 6 17 6 L7 6 Q4 6 4 9 Z"></path><circle cx="9" cy="11" r="0.8" fill="var(--doodle)"></circle><circle cx="15" cy="11" r="0.8" fill="var(--doodle)"></circle></svg>
+        cat mom ✦
+      </span>
+      <span style="position:absolute; top:-9px; right:-52px; display:flex; align-items:center; gap:5px; font-family:'Nunito Sans',cursive; font-size:14px; font-weight:600; color:var(--doodle); transform:rotate(7deg); white-space:nowrap;">
+        otaku ✦ <span style="font-family:'Nunito Sans',sans-serif; font-size:13px;">こんにちは</span>
+      </span>
+    </div>
+  </section>
+
+  <section id="work" data-reveal="" style="max-width:820px; margin:64px auto 0; padding:0 24px; text-align:center; opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s cubic-bezier(.16,1,.3,1);">
+    <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--eyebrow-bg); padding:6px 16px; border-radius:100px; margin-bottom:20px;">Selected Work</div>
+    <h2 style="font-size:clamp(26px,4.5vw,38px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; margin:0 0 40px; color:var(--text);">Case studies</h2>
+    <div style="display:flex; flex-direction:column; gap:16px; text-align:left;">
+
+    <a href="Fertitude.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:8px; background:radial-gradient(circle at 1px 1px, rgba(255,255,255,0.09) 1px, transparent 0) 0 0/18px 18px, #4A3570; padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.55s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.55s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.05);">
+      <div ref="{{ fertTextRef }}">
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px;">
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.22); color:rgba(255,255,255,0.85);">Femtech</span>
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.22); color:rgba(255,255,255,0.85);">Mobile</span>
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.15); border:1px solid rgba(255,255,255,0.22); color:rgba(255,255,255,0.85);">Full Redesign</span>
+        </div>
+        <h3 style="font-size:clamp(22px,3.5vw,32px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; color:#FFFFFF; margin:0 0 12px;">Fertitude</h3>
+        <p style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#FFFFFF; line-height:1.4; margin:0 0 12px;">Making reproductive health feel less clinical, more human.</p>
+        <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.68); line-height:1.7; margin:0;">I handled the full redesign of Fertitude, a reproductive health app. I reworked the period tracker, embedded the AI assistant across the product instead of keeping her confined to one screen, and rethought how expert care and community worked.</p>
+        <div style="display:flex; gap:32px; margin-top:24px;">
+          <div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.55); margin-bottom:2px;">Status</div>
+            <div style="font-size:18px; font-weight:800; letter-spacing:-0.02em; color:rgba(255,255,255,0.95);">Live</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:flex-end; order:{{ cardImageOrder }}; min-width:0; overflow:hidden;">
+        <div style="height:{{ fertImgHeight }}; border-radius:24px; flex-shrink:0; transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:scale(1.08) rotate(-1deg);">
+          <img src="assets/fertitude.jpg" alt="Fertitude home screen showing today's cycle day and phase" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
+        </div>
+      </div>
+    </a>
+
+    <a href="Fanatix.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:8px; background:repeating-linear-gradient(135deg, rgba(191,255,0,0.09) 0px, rgba(191,255,0,0.09) 1px, transparent 1px, transparent 13px), #0D0D0D; border:1px solid rgba(255,255,255,0.14); padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.4s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.08);">
+      <div ref="{{ fanTextRef }}">
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px;">
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">Sports</span>
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">Fan Engagement</span>
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.15); color:rgba(255,255,255,0.7);">Mobile</span>
+        </div>
+        <h3 style="font-size:clamp(22px,3.5vw,32px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; color:#FFFFFF; margin:0 0 12px;">Fanatix</h3>
+        <p style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#FFFFFF; line-height:1.4; margin:0 0 12px;">Designing the second screen sports fans actually reach for.</p>
+        <p style="font-size:14px; font-weight:300; color:rgba(255,255,255,0.5); line-height:1.7; margin:0;">I came in to redesign Fanatix from an earlier version of the app, then kept building from there: community features, monetisation flows, and live banter rooms where fans talk through a match as it happens. Now the app is the first thing fans reach for, instead of scattering banter across a dozen other tabs.</p>
+        <div style="display:flex; gap:32px; margin-top:24px;">
+          <div>
+            <div style="font-size:12px; color:rgba(255,255,255,0.55); margin-bottom:2px;">Status</div>
+            <div style="font-size:18px; font-weight:800; letter-spacing:-0.02em; color:rgba(255,255,255,0.95);">Live</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:flex-end; order:{{ cardImageOrder }};">
+        <div style="height:{{ fanImgHeight }}; border-radius:24px; flex-shrink:0; transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:scale(1.08) rotate(1deg);">
+          <img src="assets/fanatix.jpg" alt="Fanatix home screen showing live match scores" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
+        </div>
+      </div>
+    </a>
+
+    <a href="JumpWeg.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:8px; background:radial-gradient(circle at 1px 1px, rgba(139,35,71,0.16) 1.5px, transparent 0) 0 0/18px 18px, #FBEAF0; border:1px solid #F3D3E0; padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.4s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.05);">
+      <div ref="{{ jumpTextRef }}">
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px;">
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(139,35,71,0.08); border:1px solid rgba(139,35,71,0.15); color:#8B2347;">SaaS</span>
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(139,35,71,0.08); border:1px solid rgba(139,35,71,0.15); color:#8B2347;">Content Tools</span>
+          <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(139,35,71,0.08); border:1px solid rgba(139,35,71,0.15); color:#8B2347;">Co-Founder</span>
+        </div>
+        <h3 style="font-size:clamp(22px,3.5vw,30px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; color:#111111; margin:0 0 12px;">JumpWag</h3>
+        <p style="font-size:15px; font-weight:600; letter-spacing:-0.01em; color:#111111; line-height:1.4; margin:0 0 12px;">Trends are everywhere. Making them make sense for you is the hard part.</p>
+        <p style="font-size:14px; font-weight:300; color:#666666; line-height:1.7; margin:0;">JumpWag surfaces what's trending on TikTok, Instagram, and YouTube Shorts, then helps you figure out how to make it fit your niche, audience, and brand. I was one of three co-founders, handling all of the product design alongside a growth-focused PM and a developer.</p>
+        <div style="display:flex; gap:32px; margin-top:24px;">
+          <div>
+            <div style="font-size:12px; color:#999999; margin-bottom:2px;">Status</div>
+            <div style="font-size:18px; font-weight:800; letter-spacing:-0.02em; color:#111111;">Live · Currently paused</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex; align-items:center; justify-content:flex-end; order:{{ cardImageOrder }};">
+        <div style="height:{{ jumpImgHeight }}; border-radius:24px; flex-shrink:0; transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:scale(1.08) rotate(-1deg);">
+          <img src="assets/jumpweg.jpg" alt="JumpWag homepage with viral trends headline" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
+        </div>
+      </div>
+    </a>
+
+    </div>
+  </section>
+
+  <section data-reveal="" style="max-width:820px; margin:80px auto 0; padding:0 24px; text-align:center; opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s cubic-bezier(.16,1,.3,1);">
+    <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--eyebrow-bg); padding:6px 16px; border-radius:100px; margin-bottom:20px;">More Work</div>
+    <h2 style="font-size:clamp(26px,4.5vw,38px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; margin:0 0 32px; color:var(--text);">Other projects</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; text-align:left;">
+      <a href="Sweatville.dc.html" data-reveal="" style="background:var(--card-bg); border:1px solid var(--card-border); border-radius:16px; padding:28px; opacity:0; transform:translateY(24px); transition:transform 0.5s cubic-bezier(.16,1,.3,1), box-shadow 0.25s ease, background 0.3s, border-color 0.3s, opacity 0.5s ease; text-decoration:none;" style-hover="transform:translateY(-4px) scale(1.015); box-shadow:0 10px 30px rgba(0,0,0,0.18);">
+        <div style="font-size:12px; font-weight:500; color:var(--text-muted); margin-bottom:8px; line-height:1.5;">Fitness · Mobile</div>
+        <div style="font-size:22px; font-weight:800; letter-spacing:-0.03em; color:var(--text); margin-bottom:10px; line-height:1.2;">Sweatville</div>
+        <p style="font-size:13px; font-weight:300; color:var(--text-muted); line-height:1.6; margin:0 0 16px;">A gym membership app that lets members check in, track visits across branches, and monitor their measurements, all from one place.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-size:11px; font-weight:500; color:var(--text-muted); padding:3px 10px; border-radius:100px; border:1px solid var(--tag-border);">Mobile UI</span>
+          <span style="font-size:11px; font-weight:500; color:var(--text-muted); padding:3px 10px; border-radius:100px; border:1px solid var(--tag-border);">Product Design</span>
+        </div>
+      </a>
+      <a href="Bellavi.dc.html" data-reveal="" style="background:var(--card-bg); border:1px solid var(--card-border); border-radius:16px; padding:28px; opacity:0; transform:translateY(24px); transition:transform 0.5s cubic-bezier(.16,1,.3,1) 0.08s, box-shadow 0.25s ease, background 0.3s, border-color 0.3s, opacity 0.5s ease 0.08s; text-decoration:none;" style-hover="transform:translateY(-4px) scale(1.015); box-shadow:0 10px 30px rgba(0,0,0,0.18);">
+        <div style="font-size:12px; font-weight:500; color:var(--text-muted); margin-bottom:8px; line-height:1.5;">Concept · Early stage (paused)</div>
+        <div style="font-size:22px; font-weight:800; letter-spacing:-0.03em; color:var(--text); margin-bottom:10px; line-height:1.2;">Bellavi</div>
+        <p style="font-size:13px; font-weight:300; color:var(--text-muted); line-height:1.6; margin:0 0 16px;">A productivity app that turns your goals into an RPG story. Your big goal becomes an “epic mission,” broken into small quests that build toward it.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="font-size:11px; font-weight:500; color:var(--text-muted); padding:3px 10px; border-radius:100px; border:1px solid var(--tag-border);">Concept</span>
+          <span style="font-size:11px; font-weight:500; color:var(--text-muted); padding:3px 10px; border-radius:100px; border:1px solid var(--tag-border);">Product Design</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer id="contact" style="max-width:680px; margin:96px auto 0; padding:0 24px 64px; text-align:center;">
+    <div style="font-size:clamp(26px,5vw,38px); font-weight:800; letter-spacing:-0.035em; line-height:1.15; margin:0 auto 14px; max-width:480px; color:var(--text);">I notice what's missing, then I go design it.</div>
+    <div style="font-size:15px; font-weight:300; font-style:italic; color:var(--footer-sub); line-height:1.6; margin-bottom:32px;">Open to full-time roles and select contract work.</div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap; margin-bottom:40px;">
+      <a href="mailto:sophialivingstonee@gmail.com" style="display:inline-flex; align-items:center; gap:7px; font-size:15px; font-weight:700; color:var(--text); text-decoration:none;" style-hover="color:var(--accent);">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="m4 6 8 7 8-7"></path></svg>
+        Email
+      </a>
+      <a href="https://www.linkedin.com/in/sophialivingstone/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:7px; font-size:15px; font-weight:700; color:var(--text); text-decoration:none;" style-hover="color:var(--accent);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div style="font-size:12px; color:var(--footer-sub); font-weight:400;">Sophie · Product Designer · 2026</div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { dark: (typeof localStorage !== 'undefined' && localStorage.getItem('sophie-theme') === 'light') ? false : true, isMobile: false, pageEnter: false, cardHeights: {} };
+  fertTextRef = React.createRef();
+  fanTextRef = React.createRef();
+  jumpTextRef = React.createRef();
+
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 680px)');
+    this.setState({ isMobile: this.mq.matches });
+    this.mqHandler = (e) => this.setState({ isMobile: e.matches });
+    this.mq.addEventListener('change', this.mqHandler);
+    this.initMotion();
+    this.measureCards();
+    this._resizeHandler = () => this.measureCards();
+    window.addEventListener('resize', this._resizeHandler);
+    if (window.location.hash) {
+      const scrollToHash = () => {
+        const el = document.querySelector(window.location.hash);
+        if (el) el.scrollIntoView({ block: 'start' });
+      };
+      setTimeout(scrollToHash, 60);
+      setTimeout(scrollToHash, 500);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener('change', this.mqHandler);
+    if (this._resizeHandler) window.removeEventListener('resize', this._resizeHandler);
+    this.teardownMotion();
+  }
+
+  measureCards() {
+    const heights = {
+      fert: this.fertTextRef.current ? this.fertTextRef.current.offsetHeight : null,
+      fan: this.fanTextRef.current ? this.fanTextRef.current.offsetHeight : null,
+      jump: this.jumpTextRef.current ? this.jumpTextRef.current.offsetHeight : null,
+    };
+    this.setState({ cardHeights: heights });
+  }
+
+  initMotion() {
+    requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ pageEnter: true })));
+    setTimeout(() => this.setState({ pageEnter: true }), 300);
+    this._onScroll = () => this.setState({ showTop: window.scrollY > 500 });
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._navClick = (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a || a.target === '_blank') return;
+      const href = a.getAttribute('href') || '';
+      if (!href.includes('.dc.html')) return;
+      e.preventDefault();
+      this.setState({ pageEnter: false });
+      setTimeout(() => { window.location.href = href; }, 380);
+    };
+    document.addEventListener('click', this._navClick);
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0) scale(1)';
+          this._io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px 80px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach((el) => this._io.observe(el));
+  }
+
+  teardownMotion() {
+    window.removeEventListener('scroll', this._onScroll);
+    document.removeEventListener('click', this._navClick);
+    if (this._io) this._io.disconnect();
+  }
+
+  renderVals() {
+    const cardImageOrder = this.state.isMobile ? 1 : 0;
+    const dark = this.state.dark;
+    const vars = dark ? {
+      '--bg': '#111111',
+      '--nav-bg': 'rgba(24,24,24,0.85)',
+      '--nav-border': 'rgba(255,255,255,0.12)',
+      '--toggle-bg': 'rgba(255,255,255,0.06)',
+      '--text': '#F5F3F2',
+      '--text-muted': '#A8A8A8',
+      '--divider': 'rgba(255,255,255,0.15)',
+      '--accent': '#E0729C',
+      '--eyebrow-bg': 'rgba(139,35,71,0.18)',
+      '--card-bg': '#1A1A1A',
+      '--card-border': 'rgba(255,255,255,0.12)',
+      '--tag-border': 'rgba(255,255,255,0.15)',
+      '--footer-sub': '#818181',
+      '--doodle': '#F0A0BE',
+    } : {
+      '--bg': '#F8F8F7',
+      '--nav-bg': 'rgba(255,255,255,0.88)',
+      '--nav-border': '#E3E3E3',
+      '--toggle-bg': '#FBF0F4',
+      '--text': '#111111',
+      '--text-muted': '#666666',
+      '--divider': '#E3E3E3',
+      '--accent': '#8B2347',
+      '--eyebrow-bg': '#FBF0F4',
+      '--card-bg': '#FFFFFF',
+      '--card-border': '#E3E3E3',
+      '--tag-border': '#E3E3E3',
+      '--footer-sub': '#999999',
+      '--doodle': '#8B2347',
+    };
+    const varString = Object.entries(vars).map(([k, v]) => `${k}:${v}`).join(';');
+    const h = this.state.cardHeights || {};
+    return {
+      showTopOpacity: this.state.showTop ? 1 : 0,
+      showTopPointer: this.state.showTop ? 'auto' : 'none',
+      showTopScale: this.state.showTop ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.9)',
+      scrollToTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      dark,
+      light: !dark,
+      knobTransform: dark ? 'translateX(0)' : 'translateX(26px)',
+      rootStyle: `${varString};min-height:100vh;overflow-x:hidden;background:var(--bg);color:var(--text);transition:background 0.3s ease,color 0.3s ease;`,
+      toggleTheme: () => this.setState(s => { const next = !s.dark; try { localStorage.setItem('sophie-theme', next ? 'dark' : 'light'); } catch (e) {} return { dark: next }; }),
+      isDesktop: !this.state.isMobile,
+      cardImageOrder,
+      overlayOpacity: this.state.pageEnter ? 0 : 1,
+      fertTextRef: this.fertTextRef,
+      fanTextRef: this.fanTextRef,
+      jumpTextRef: this.jumpTextRef,
+      fertImgHeight: h.fert ? `${h.fert}px` : 'auto',
+      fanImgHeight: h.fan ? `${h.fan}px` : 'auto',
+      jumpImgHeight: h.jump ? `${h.jump}px` : 'auto',
+    };
+  }
+}
+</script>
+</body>
+</html>

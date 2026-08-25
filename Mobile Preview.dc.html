@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin: 0; background: #e8e8e8; font-family: system-ui, sans-serif; }
+  </style>
+</helmet>
+<div style="min-height:100vh; display:flex; flex-direction:column; align-items:center; gap:20px; padding:40px 20px; box-sizing:border-box;">
+  <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+    <sc-for list="{{ pages }}" as="p" hint-placeholder-count="7">
+      <button onClick="{{ p.onClick }}" style="font-size:13px; font-weight:600; padding:8px 16px; border-radius:100px; border:1px solid #ccc; background:{{ p.active }}; color:{{ p.color }}; cursor:pointer;">{{ p.label }}</button>
+    </sc-for>
+  </div>
+  <div style="{{ deviceWrapStyle }}">
+    <div style="{{ deviceScaleStyle }}">
+      <x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="402px,874px">
+        <iframe src="{{ activeUrl }}" style="width:100%; height:calc(100% - 60px); border:none; margin-top:60px; display:block;" title="Mobile preview"></iframe>
+      </x-import>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 'Portfolio.dc.html', scale: 1 };
+  pageList = ['Portfolio.dc.html','About.dc.html','Fertitude.dc.html','Fanatix.dc.html','JumpWeg.dc.html','Sweatville.dc.html','Bellavi.dc.html'];
+
+  componentDidMount() {
+    this._onResize = () => this.setState({ scale: Math.min(1.35, Math.max(0.6, (window.innerWidth - 32) / 402)) });
+    this._onResize();
+    window.addEventListener('resize', this._onResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+
+  renderVals() {
+    return {
+      deviceWrapStyle: `width:${402 * this.state.scale}px; height:${874 * this.state.scale}px;`,
+      deviceScaleStyle: `transform:scale(${this.state.scale}); transform-origin:top center;`,
+      activeUrl: this.state.active,
+      pages: this.pageList.map(f => ({
+        label: f.replace('.dc.html',''),
+        active: f === this.state.active ? '#111' : '#fff',
+        color: f === this.state.active ? '#fff' : '#111',
+        onClick: () => this.setState({ active: f }),
+      })),
+    };
+  }
+}
+</script>
+</body>
+</html>

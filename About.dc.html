@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Sophie Livingstone — Product Designer</title>
+<meta name="description" content="Sophie Livingstone's background, experience, and tools — from marketing to product design across femtech, sports, and SaaS.">
+<meta property="og:title" content="About Sophie Livingstone — Product Designer">
+<meta property="og:description" content="Sophie Livingstone's background, experience, and tools — from marketing to product design across femtech, sports, and SaaS.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sophie-portfolio.vercel.app/about">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&amp;display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #111111; font-family: 'Nunito Sans', 'DM Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; transition: background 0.3s ease; }
+    ::selection { background: rgba(139,35,71,0.4); color: #FFFFFF; }
+    a { color: inherit; }
+  </style>
+  <script src="./image-slot.js"></script>
+</helmet>
+
+<div style="{{ rootStyle }}">
+  <div style="position:fixed; inset:0; z-index:9999; background:var(--bg); opacity:{{ overlayOpacity }}; pointer-events:none; transition:opacity 0.4s ease;"></div>
+
+  <button onClick="{{ scrollToTop }}" aria-label="Back to top" style="position:fixed; right:24px; bottom:24px; z-index:500; width:44px; height:44px; border-radius:100px; border:none; background:var(--text); color:var(--bg); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 20px rgba(0,0,0,0.28); opacity:{{ showTopOpacity }}; transform:{{ showTopScale }}; transition:opacity 0.25s ease, transform 0.25s ease; pointer-events:{{ showTopPointer }};">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
+  </button>
+
+  <nav style="position:sticky; top:12px; z-index:50; display:flex; justify-content:center; align-items:center; gap:10px; padding:0 16px;">
+      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="flex-shrink:0; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
+          <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
+            <sc-if value="{{ dark }}" hint-placeholder-val="{{ true }}">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F0A0BE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3.5 Q11 4.5 11 12 Q11 19.5 18.5 20.5 Q13 22.5 8.5 18.5 Q4 14.5 6 8.5 Q8 3 15 3.5 Z"></path><circle cx="9" cy="9" r="0.6" fill="#F0A0BE"></circle><circle cx="7.5" cy="13" r="0.5" fill="#F0A0BE"></circle></svg>
+            </sc-if>
+            <sc-if value="{{ light }}" hint-placeholder-val="{{ false }}">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B2347" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5 L12 5"></path><path d="M12 19 L12 21.5"></path><path d="M2.5 12 L5 12"></path><path d="M19 12 L21.5 12"></path><path d="M5 5 L6.8 6.8"></path><path d="M17.2 17.2 L19 19"></path><path d="M19 5 L17.2 6.8"></path><path d="M6.8 17.2 L5 19"></path></svg>
+            </sc-if>
+          </div>
+        </button>
+      </sc-if>
+    <div style="display:flex; align-items:center; background:var(--nav-bg); backdrop-filter:blur(16px); border:1px solid var(--nav-border); border-radius:100px; padding:6px 4px 6px 10px; box-shadow:0 2px 16px rgba(0,0,0,0.3); max-width:100%; overflow-x:auto; gap:2px; transition:background 0.3s ease, border-color 0.3s ease;">
+      <a href="Portfolio.dc.html" style="display:flex; align-items:center; gap:6px; margin-right:10px; flex-shrink:0; text-decoration:none;">
+        <span style="width:6px; height:6px; border-radius:100px; background:#3EC46D; flex-shrink:0;"></span>
+        <span style="font-size:11px; font-weight:800; letter-spacing:-0.02em; color:var(--text); white-space:nowrap;">Sophie<span style="color:var(--accent);">.</span></span>
+      </a>
+      <span style="width:1px; height:12px; background:var(--divider); flex-shrink:0;"></span>
+      <div style="display:flex; align-items:center; gap:0; flex-shrink:0;">
+        <a href="Portfolio.dc.html#work" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Work</a>
+        <a href="#top" style="font-size:10.5px; font-weight:600; color:var(--accent); background:var(--eyebrow-bg); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;">About</a>
+        <a href="Portfolio.dc.html#contact" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Contact</a>
+      </div>
+      <a href="#resume" style="font-size:10.5px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:6px 10px; border-radius:100px; white-space:nowrap; flex-shrink:0; transition:background 0.2s; text-decoration:none;" style-hover="background:#6E1B39;">Resume</a>
+    </div>
+  </nav>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="position:absolute; left:24px; top:14px; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; z-index:51; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
+      <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
+        <sc-if value="{{ dark }}" hint-placeholder-val="{{ true }}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F0A0BE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3.5 Q11 4.5 11 12 Q11 19.5 18.5 20.5 Q13 22.5 8.5 18.5 Q4 14.5 6 8.5 Q8 3 15 3.5 Z"></path><circle cx="9" cy="9" r="0.6" fill="#F0A0BE"></circle><circle cx="7.5" cy="13" r="0.5" fill="#F0A0BE"></circle></svg>
+        </sc-if>
+        <sc-if value="{{ light }}" hint-placeholder-val="{{ false }}">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8B2347" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.5 L12 5"></path><path d="M12 19 L12 21.5"></path><path d="M2.5 12 L5 12"></path><path d="M19 12 L21.5 12"></path><path d="M5 5 L6.8 6.8"></path><path d="M17.2 17.2 L19 19"></path><path d="M19 5 L17.2 6.8"></path><path d="M6.8 17.2 L5 19"></path></svg>
+        </sc-if>
+      </div>
+    </button>
+  </sc-if>
+
+  <section id="top" style="max-width:700px; margin:0 auto; padding:clamp(48px,8vw,72px) 24px 0; text-align:center; position:relative;">
+    <div style="position:absolute; top:2px; right:8px; width:64px; height:64px; background:radial-gradient(circle at 1px 1px, var(--divider) 1.5px, transparent 0) 0 0/12px 12px; opacity:0.7; pointer-events:none;"></div>
+    <div style="position:absolute; top:44px; left:4px; width:40px; height:40px; background:radial-gradient(circle at 1px 1px, var(--divider) 1.5px, transparent 0) 0 0/10px 10px; opacity:0.5; pointer-events:none;"></div>
+
+    <h1 style="font-size:clamp(30px,5.5vw,46px); font-weight:800; letter-spacing:-0.035em; line-height:1.15; margin:0 0 36px; color:var(--text);">From marketing to product design.</h1>
+
+    <div style="display:flex; justify-content:center; gap:clamp(28px,6vw,52px); max-width:520px; margin:0 auto 52px;">
+      <div data-reveal style="text-align:center; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s cubic-bezier(.16,1,.3,1);">
+        <div data-counter="5" style="font-size:clamp(30px,5vw,40px); font-weight:800; letter-spacing:-0.04em; color:var(--text); line-height:1;">0</div>
+        <div style="width:20px; height:2px; background:var(--accent); margin:10px auto;"></div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); line-height:1.4;">Years in<br>marketing</div>
+      </div>
+      <div data-reveal style="text-align:center; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease 0.08s, transform 0.6s cubic-bezier(.16,1,.3,1) 0.08s;">
+        <div data-counter="1.5" style="font-size:clamp(30px,5vw,40px); font-weight:800; letter-spacing:-0.04em; color:var(--text); line-height:1;">0</div>
+        <div style="width:20px; height:2px; background:var(--accent); margin:10px auto;"></div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); line-height:1.4;">Years in product<br>design</div>
+      </div>
+      <div data-reveal style="text-align:center; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease 0.16s, transform 0.6s cubic-bezier(.16,1,.3,1) 0.16s;">
+        <div data-counter="3" style="font-size:clamp(30px,5vw,40px); font-weight:800; letter-spacing:-0.04em; color:var(--text); line-height:1;">0</div>
+        <div style="width:20px; height:2px; background:var(--accent); margin:10px auto;"></div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); line-height:1.4;">Products<br>shipped</div>
+      </div>
+    </div>
+
+    <div style="text-align:left; display:flex; flex-direction:column; gap:24px; max-width:600px; margin:0 auto;">
+      <p style="font-size:16.5px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0;">I spent five years in marketing before I found product design, and that background still shapes how I work. I spent enough time thinking about audiences, conversion, and what makes someone stick around. When I moved into design, it felt less like starting over and more like finally building the thing I'd been writing and strategizing around all along.</p>
+
+      <div style="text-align:center; margin:6px 0;">
+        <p style="display:inline-block; font-size:21px; font-weight:600; font-style:italic; color:var(--accent); line-height:1.45; margin:0; letter-spacing:-0.01em;">Different industries, same instinct: start with what's actually confusing someone, and design my way out from there.</p>
+        <svg width="120" height="10" viewBox="0 0 120 10" style="display:block; margin:8px auto 0;" fill="none" stroke="var(--doodle)" stroke-width="1.6" stroke-linecap="round"><path d="M2 6 Q30 1 60 6 T118 5"></path></svg>
+      </div>
+
+      <p style="font-size:16.5px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0;">The last year and a half has been full product redesigns across femtech, sports, and SaaS — rethinking core flows, rebuilding how people interact with an AI assistant, designing community and monetisation features for a fan platform, and co-founding a product from the ground up.</p>
+
+      <img src="assets/about-illustration.png" alt="Illustration of Sophie surrounded by wireframe screens" style="width:100%; height:auto; display:block;">
+
+      <p style="font-size:16.5px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0;">I like problems that don't have an obvious shape yet. The kind where you have to sit with the mess before anything clean comes out of it. Outside of work, that same instinct shows up in smaller ways: trying out recipes, making things with my hands, and losing an evening to a project just because I want to see it finished.</p>
+
+      <p style="font-size:16.5px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0;">I'm currently open to new opportunities. If you think I'd be a good fit for your team, I'd love to hear from you.</p>
+
+    </div>
+  </section>
+
+  <div style="max-width:700px; margin:88px auto 0; padding:0 24px;">
+    <div style="height:1px; background:var(--divider);"></div>
+  </div>
+
+  <section id="resume" data-reveal style="max-width:760px; margin:0 auto; padding:64px 24px 0; text-align:center; opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s cubic-bezier(.16,1,.3,1);">
+    <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:var(--eyebrow-bg); padding:6px 16px; border-radius:100px; margin-bottom:20px;">Resume</div>
+    <h2 style="font-size:clamp(28px,4.5vw,40px); font-weight:800; letter-spacing:-0.03em; line-height:1.2; margin:0 0 56px; color:var(--text);">Where I've worked, what I use, what I studied.</h2>
+
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:36px; text-align:left;">
+      <span style="font-size:13px; font-weight:800; color:var(--divider); letter-spacing:-0.01em; flex-shrink:0;">01</span>
+      <h3 style="font-size:20px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Experience</h3>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:34px; text-align:left; margin-bottom:72px;">
+
+      <div data-reveal style="display:flex; gap:16px; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s cubic-bezier(.16,1,.3,1);">
+        <div style="width:44px; height:44px; border-radius:100px; background:#FFFFFF; border:1px solid var(--card-border); display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden;"><img src="assets/logo-fertitude.png" alt="Fertitude" width="28" height="28" style="object-fit:contain;"></div>
+        <div>
+          <h4 style="font-size:17px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0 0 2px;">Product Designer — <a href="https://www.fertitude.com/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;" style-hover="color:var(--accent);">Fertitude</a></h4>
+          <div style="font-size:12px; font-weight:600; color:var(--text-muted); margin-bottom:10px;">Full-time · May 2025 – Present</div>
+          <p style="font-size:14.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;">Sole product designer at Fertitude for 1.5 years, handling the full redesign of the app. I rebuilt the period tracker into a swipeable, color-coded card system, embedded the AI assistant across the product instead of keeping her confined to one screen, and stepped up to lead the experience squad for three months to guide feature prioritization with real usage data.</p>
+        </div>
+      </div>
+
+      <div data-reveal style="display:flex; gap:16px; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease 0.06s, transform 0.6s cubic-bezier(.16,1,.3,1) 0.06s;">
+        <div style="width:44px; height:44px; border-radius:100px; background:#FFFFFF; border:1px solid var(--card-border); display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden;"><img src="assets/logo-fanatix.png" alt="Fanatix" width="28" height="28" style="object-fit:contain;"></div>
+        <div>
+          <h4 style="font-size:17px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0 0 2px;">Product Designer — <a href="https://www.linkedin.com/company/fanatix-app/posts/?feedView=all" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;" style-hover="color:var(--accent);">Fanatix</a></h4>
+          <div style="font-size:12px; font-weight:600; color:var(--text-muted); margin-bottom:10px;">Part-time · July 2025 – Present</div>
+          <p style="font-size:14.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;">Came on originally to design a single feature, a daily trivia game to boost engagement. That grew into an extended contract covering a full redesign of the app and new features as they came up, including the community feature that gave fans a reason to open it outside of live matches. That work opened the door to community manager partnerships with football creators.</p>
+        </div>
+      </div>
+
+      <div data-reveal style="display:flex; gap:16px; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease 0.12s, transform 0.6s cubic-bezier(.16,1,.3,1) 0.12s;">
+        <div style="width:44px; height:44px; border-radius:100px; background:#FFFFFF; border:1px solid var(--card-border); display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden;"><img src="assets/logo-jumpwag.png" alt="JumpWag" width="28" height="28" style="object-fit:contain;"></div>
+        <div>
+          <h4 style="font-size:17px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0 0 2px;">Co-Founding Product Designer — <a href="https://jumpwag.com/" target="_blank" rel="noopener" style="color:inherit; text-decoration:none;" style-hover="color:var(--accent);">JumpWag</a></h4>
+          <div style="font-size:12px; font-weight:600; color:var(--text-muted); margin-bottom:10px;">August 2025 – June 2026</div>
+          <p style="font-size:14.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;">One of three co-founders alongside a growth-focused PM and a developer, handling all of JumpWag's product design. Designed the end-to-end idea generation flow that helps creators adapt trending content to their own audience, format, and CTA.</p>
+        </div>
+      </div>
+
+      <div data-reveal style="display:flex; gap:16px; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease 0.18s, transform 0.6s cubic-bezier(.16,1,.3,1) 0.18s;">
+        <div style="width:44px; height:44px; border-radius:100px; background:#FFFFFF; border:1px solid var(--card-border); display:flex; align-items:center; justify-content:center; flex-shrink:0; overflow:hidden;"><img src="assets/logo-sweatville.png" alt="Sweatville" width="28" height="28" style="object-fit:contain;"></div>
+        <div>
+          <h4 style="font-size:17px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0 0 2px;">Product Designer — Sweatville</h4>
+          <div style="font-size:12px; font-weight:600; color:var(--text-muted); margin-bottom:10px;">Contract · October 2025</div>
+          <p style="font-size:14.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0;">Designed the core experience for a gym membership app, sole designer within a 3-week engagement, covering branch check-ins, visit history, memberships, and progress tracking.</p>
+        </div>
+      </div>
+
+      <div data-reveal style="display:flex; gap:16px; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease 0.24s, transform 0.6s cubic-bezier(.16,1,.3,1) 0.24s;">
+        <div style="width:44px; height:44px; border-radius:100px; background:var(--card-bg); border:1px solid var(--card-border); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>
+        </div>
+        <div>
+          <h4 style="font-size:17px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0 0 2px;">Earlier Career — Marketing &amp; Content</h4>
+          <div style="font-size:12px; font-weight:600; color:var(--text-muted); margin-bottom:10px;">2019 – 2024</div>
+          <p style="font-size:14.5px; font-weight:300; color:var(--text-muted); line-height:1.7; margin:0 0 12px;">Five years across marketing and content roles at Motherboard, EarlyNode, PneumaCare, Enterscale, and Wrap Valley, spanning ads, content, social, and product growth. I wrote PRDs, crafted product and landing page copy, and worked closely alongside designers before making the full move into product design.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:6px;">
+            <a href="https://www.usemotherboard.com/" target="_blank" rel="noopener" style="font-size:12px; font-weight:600; color:var(--text-muted); padding:4px 12px; border-radius:100px; border:1px solid var(--tag-border); text-decoration:none;" style-hover="color:var(--accent); border-color:var(--accent);">Motherboard</a>
+            <a href="https://www.earlynode.com/" target="_blank" rel="noopener" style="font-size:12px; font-weight:600; color:var(--text-muted); padding:4px 12px; border-radius:100px; border:1px solid var(--tag-border); text-decoration:none;" style-hover="color:var(--accent); border-color:var(--accent);">EarlyNode</a>
+            <a href="https://www.pneuma.care/" target="_blank" rel="noopener" style="font-size:12px; font-weight:600; color:var(--text-muted); padding:4px 12px; border-radius:100px; border:1px solid var(--tag-border); text-decoration:none;" style-hover="color:var(--accent); border-color:var(--accent);">PneumaCare</a>
+            <a href="https://www.enterscale.com/" target="_blank" rel="noopener" style="font-size:12px; font-weight:600; color:var(--text-muted); padding:4px 12px; border-radius:100px; border:1px solid var(--tag-border); text-decoration:none;" style-hover="color:var(--accent); border-color:var(--accent);">Enterscale</a>
+            <a href="https://x.com/wrapvalley" target="_blank" rel="noopener" style="font-size:12px; font-weight:600; color:var(--text-muted); padding:4px 12px; border-radius:100px; border:1px solid var(--tag-border); text-decoration:none;" style-hover="color:var(--accent); border-color:var(--accent);">Wrap Valley</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:36px; text-align:left;">
+      <span style="font-size:13px; font-weight:800; color:var(--divider); letter-spacing:-0.01em; flex-shrink:0;">02</span>
+      <h3 style="font-size:20px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Skills &amp; tools</h3>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-bottom:72px;">
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path d="M8 1a3.5 3.5 0 000 7h3.5V1H8z" fill="#F24E1E"></path><path d="M4.5 11.5A3.5 3.5 0 018 8h3.5v7H8a3.5 3.5 0 01-3.5-3.5z" fill="#A259FF"></path><path d="M4.5 19a3.5 3.5 0 013.5-3.5h3.5V19a3.5 3.5 0 11-7 0z" fill="#0ACF83"></path><path d="M11.5 8H15a3.5 3.5 0 110 7h-3.5V8z" fill="#1ABCFE"></path><path d="M11.5 1H15a3.5 3.5 0 010 7h-3.5V1z" fill="#FF7262"></path></svg>
+        <span style="font-size:13px; font-weight:600; color:var(--text);">Figma</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <svg width="18" height="18" viewBox="0 0 24 24"><defs><linearGradient id="canvaGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00C4CC"></stop><stop offset="100%" stop-color="#7D2AE8"></stop></linearGradient></defs><circle cx="12" cy="12" r="11" fill="url(#canvaGrad)"></circle><path d="M16.8 9.2c-.4-.7-1.2-1.1-2.1-1.1-1.7 0-3.1 1.6-3.1 3.9 0 2.1 1.1 3.4 2.7 3.4.9 0 1.6-.4 2-1l.6.5c-.6.9-1.6 1.5-2.9 1.5-2.3 0-3.9-1.8-3.9-4.3 0-2.6 1.8-4.7 4.3-4.7 1.3 0 2.3.6 2.9 1.5z" fill="#fff"></path></svg>
+        <span style="font-size:13px; font-weight:600; color:var(--text);">Canva</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <img src="assets/logo-claude.png" alt="Claude" width="18" height="18" style="border-radius:4px; object-fit:cover; display:block;">
+        <span style="font-size:13px; font-weight:600; color:var(--text);">Claude</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <img src="assets/logo-miro.png" alt="Miro" width="18" height="18" style="border-radius:4px; object-fit:cover; display:block;">
+        <span style="font-size:13px; font-weight:600; color:var(--text);">Miro</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <img src="assets/logo-linear.png" alt="Linear" width="18" height="18" style="border-radius:100px; object-fit:cover; display:block;">
+        <span style="font-size:13px; font-weight:600; color:var(--text);">Linear</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <img src="assets/logo-clickup.png" alt="ClickUp" width="18" height="18" style="border-radius:100px; object-fit:cover; display:block;">
+        <span style="font-size:13px; font-weight:600; color:var(--text);">ClickUp</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1.5"></rect><path d="M3 9h18"></path><path d="M9 9v11"></path></svg>
+        <span style="font-size:13px; font-weight:600; color:var(--text);">Wireframing</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3l5.5 15L13 12l6-2.5L5 3z"></path></svg>
+        <span style="font-size:13px; font-weight:600; color:var(--text);">Prototyping</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+        <span style="font-size:13px; font-weight:600; color:var(--text);">Design Systems</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6.5"></circle><path d="M20 20l-5.5-5.5"></path></svg>
+        <span style="font-size:13px; font-weight:600; color:var(--text);">User Research</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4l10-10-4-4L4 16v4z"></path><path d="M13.5 6.5l4 4"></path></svg>
+        <span style="font-size:13px; font-weight:600; color:var(--text);">UX Writing</span>
+      </div>
+
+      <div style="display:inline-flex; align-items:center; gap:9px; background:var(--card-bg); border:1px solid var(--card-border); border-radius:100px; padding:10px 18px 10px 12px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"></path><path d="M9 13l2 2 4-4"></path></svg>
+        <span style="font-size:13px; font-weight:600; color:var(--text);">PRD Writing</span>
+      </div>
+
+    </div>
+
+    <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:36px; text-align:left;">
+      <span style="font-size:13px; font-weight:800; color:var(--divider); letter-spacing:-0.01em; flex-shrink:0;">03</span>
+      <h3 style="font-size:20px; font-weight:800; letter-spacing:-0.02em; color:var(--text); margin:0;">Education</h3>
+      <span style="flex:1; height:1px; background:var(--divider);"></span>
+    </div>
+
+    <div data-reveal style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; max-width:560px; margin:0 auto; opacity:0; transform:translateY(20px); transition:opacity 0.6s ease, transform 0.6s cubic-bezier(.16,1,.3,1);">
+
+      <a href="https://altschoolafrica.com/" target="_blank" rel="noopener" style="background:var(--card-bg); border:1px solid var(--card-border); border-radius:16px; padding:26px 22px; position:relative; overflow:hidden; text-decoration:none; display:block;" style-hover="border-color:var(--accent);">
+        <div style="position:absolute; top:14px; right:16px; opacity:0.5;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"></path><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"></path><path d="M22 9v6"></path></svg>
+        </div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">AltSchool</div>
+        <div style="font-size:19px; font-weight:800; letter-spacing:-0.02em; color:var(--text); line-height:1.25;">Product Design</div>
+      </a>
+
+      <div style="background:var(--card-bg); border:1px solid var(--card-border); border-radius:16px; padding:26px 22px; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:14px; right:16px; opacity:0.5;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5-10-5z"></path><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"></path><path d="M22 9v6"></path></svg>
+        </div>
+        <div style="font-size:11px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--accent); margin-bottom:10px;">Bowen University</div>
+        <div style="font-size:19px; font-weight:800; letter-spacing:-0.02em; color:var(--text); line-height:1.25;">B.Sc. Industrial Chemistry</div>
+      </div>
+
+    </div>
+
+    <a href="assets/sophie-cv.pdf" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:13px 26px; border-radius:100px; margin-top:44px; transition:background 0.2s, transform 0.25s; text-decoration:none;" style-hover="background:#6E1B39; transform:translateY(-3px);">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"></path><path d="m7 10 5 5 5-5"></path><path d="M5 21h14"></path></svg>
+      View full resume
+    </a>
+  </section>
+
+  <footer style="max-width:640px; margin:96px auto 0; padding:0 24px 64px; text-align:center;">
+    <div style="font-size:clamp(24px,4.5vw,34px); font-weight:800; letter-spacing:-0.035em; line-height:1.2; margin-bottom:14px; color:var(--text);">You made it all the way down here.</div>
+    <div style="font-size:15px; font-weight:300; font-style:italic; color:var(--footer-sub); line-height:1.6; margin-bottom:32px;">That seems like genuine interest to me. Say hi 👋</div>
+    <div style="display:flex; align-items:center; justify-content:center; gap:28px; flex-wrap:wrap; margin-bottom:40px;">
+      <a href="mailto:sophialivingstonee@gmail.com" style="display:inline-flex; align-items:center; gap:7px; font-size:15px; font-weight:700; color:var(--text); text-decoration:none;" style-hover="color:var(--accent);">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="m4 6 8 7 8-7"></path></svg>
+        Email
+      </a>
+      <a href="https://www.linkedin.com/in/sophialivingstone/" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:7px; font-size:15px; font-weight:700; color:var(--text); text-decoration:none;" style-hover="color:var(--accent);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        LinkedIn
+      </a>
+    </div>
+    <div style="font-size:12px; color:var(--footer-sub); font-weight:400;">Sophie · Product Designer · 2026</div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { dark: (typeof localStorage !== 'undefined' && localStorage.getItem('sophie-theme') === 'light') ? false : true, isMobile: false, pageEnter: false , showTop: false };
+
+  componentDidMount() {
+    this.mq = window.matchMedia('(max-width: 680px)');
+    this.setState({ isMobile: this.mq.matches });
+    this.mqHandler = (e) => this.setState({ isMobile: e.matches });
+    this.mq.addEventListener('change', this.mqHandler);
+    this.initMotion();
+    if (window.location.hash) {
+      const scrollToHash = () => {
+        const el = document.querySelector(window.location.hash);
+        if (el) el.scrollIntoView({ block: 'start' });
+      };
+      setTimeout(scrollToHash, 60);
+      setTimeout(scrollToHash, 500);
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.mq) this.mq.removeEventListener('change', this.mqHandler);
+    this.teardownMotion();
+  }
+
+  initMotion() {
+    requestAnimationFrame(() => this.setState({ pageEnter: true }));
+    this._onScroll = () => this.setState({ showTop: window.scrollY > 500 });
+    window.addEventListener('scroll', this._onScroll, { passive: true });
+    this._navClick = (e) => {
+      const a = e.target.closest('a[href]');
+      if (!a || a.target === '_blank') return;
+      const href = a.getAttribute('href') || '';
+      if (!href.includes('.dc.html')) return;
+      e.preventDefault();
+      this.setState({ pageEnter: false });
+      setTimeout(() => { window.location.href = href; }, 380);
+    };
+    document.addEventListener('click', this._navClick);
+    this._io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0) scale(1)';
+          this._io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach((el) => this._io.observe(el));
+    this._ioCount = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        this._ioCount.unobserve(entry.target);
+        const target = parseFloat(entry.target.getAttribute('data-counter'));
+        const decimals = entry.target.getAttribute('data-counter').includes('.') ? 1 : 0;
+        const start = performance.now();
+        const step = (now) => {
+          const t = Math.min(1, (now - start) / 900);
+          const eased = 1 - Math.pow(1 - t, 3);
+          entry.target.textContent = (target * eased).toFixed(decimals);
+          if (t < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-counter]').forEach((el) => this._ioCount.observe(el));
+  }
+
+  teardownMotion() {
+    window.removeEventListener('scroll', this._onScroll);
+    document.removeEventListener('click', this._navClick);
+    if (this._io) this._io.disconnect();
+    if (this._ioCount) this._ioCount.disconnect();
+  }
+
+  renderVals() {
+    const dark = this.state.dark;
+    const vars = dark ? {
+      '--bg': '#111111',
+      '--nav-bg': 'rgba(24,24,24,0.85)',
+      '--nav-border': 'rgba(255,255,255,0.12)',
+      '--toggle-bg': 'rgba(255,255,255,0.06)',
+      '--text': '#F5F3F2',
+      '--text-muted': '#A8A8A8',
+      '--divider': 'rgba(255,255,255,0.15)',
+      '--accent': '#E0729C',
+      '--eyebrow-bg': 'rgba(139,35,71,0.18)',
+      '--card-bg': '#1A1A1A',
+      '--card-border': 'rgba(255,255,255,0.12)',
+      '--tag-border': 'rgba(255,255,255,0.15)',
+      '--footer-sub': '#818181',
+      '--doodle': '#F0A0BE',
+    } : {
+      '--bg': '#F8F8F7',
+      '--nav-bg': 'rgba(255,255,255,0.88)',
+      '--nav-border': '#E3E3E3',
+      '--toggle-bg': '#FBF0F4',
+      '--text': '#111111',
+      '--text-muted': '#666666',
+      '--divider': '#E3E3E3',
+      '--accent': '#8B2347',
+      '--eyebrow-bg': '#FBF0F4',
+      '--card-bg': '#FFFFFF',
+      '--card-border': '#E3E3E3',
+      '--tag-border': '#E3E3E3',
+      '--footer-sub': '#999999',
+      '--doodle': '#8B2347',
+    };
+    const varString = Object.entries(vars).map(([k, v]) => `${k}:${v}`).join(';');
+    return {
+      showTopOpacity: this.state.showTop ? 1 : 0,
+      showTopPointer: this.state.showTop ? 'auto' : 'none',
+      showTopScale: this.state.showTop ? 'translateY(0) scale(1)' : 'translateY(8px) scale(0.9)',
+      scrollToTop: () => window.scrollTo({ top: 0, behavior: 'smooth' }),
+      dark,
+      light: !dark,
+      knobTransform: dark ? 'translateX(0)' : 'translateX(26px)',
+      rootStyle: `${varString};min-height:100vh;overflow-x:hidden;background:var(--bg);color:var(--text);transition:background 0.3s ease,color 0.3s ease;`,
+      toggleTheme: () => this.setState(s => { const next = !s.dark; try { localStorage.setItem('sophie-theme', next ? 'dark' : 'light'); } catch (e) {} return { dark: next }; }),
+      isMobile: this.state.isMobile,
+      isDesktop: !this.state.isMobile,
+      overlayOpacity: this.state.pageEnter ? 0 : 1,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

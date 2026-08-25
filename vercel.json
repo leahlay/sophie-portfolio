@@ -1,0 +1,13 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/Portfolio.dc.html" },
+    { "source": "/about", "destination": "/About.dc.html" },
+    { "source": "/portfolio", "destination": "/Portfolio.dc.html" },
+    { "source": "/bellavi", "destination": "/Bellavi.dc.html" },
+    { "source": "/fanatix", "destination": "/Fanatix.dc.html" },
+    { "source": "/fertitude", "destination": "/Fertitude.dc.html" },
+    { "source": "/jumpweg", "destination": "/JumpWeg.dc.html" },
+    { "source": "/sweatville", "destination": "/Sweatville.dc.html" }
+  ]
+}
