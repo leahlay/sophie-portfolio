@@ -32,10 +32,49 @@
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"></path><path d="M5 12l7-7 7 7"></path></svg>
   </button>
 
-  <nav style="position:sticky; top:12px; z-index:50; display:flex; justify-content:center; align-items:center; gap:10px; padding:0 16px;">
-      <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
-        <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="flex-shrink:0; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
-          <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
+  <nav style="position:sticky; top:12px; z-index:50; display:flex; justify-content:center; align-items:center; gap:12px; padding:0 16px;">
+    <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex; align-items:center; background:var(--nav-bg); backdrop-filter:blur(16px); border:1px solid var(--nav-border); border-radius:100px; padding:9px 6px 9px 16px; box-shadow:0 2px 16px rgba(0,0,0,0.3); max-width:100%; gap:8px; transition:background 0.3s ease, border-color 0.3s ease;">
+        <a href="Portfolio.dc.html" style="display:flex; align-items:center; gap:8px; margin-right:14px; flex-shrink:0; text-decoration:none;">
+        <span style="width:7px; height:7px; border-radius:100px; background:#3EC46D; flex-shrink:0;"></span>
+        <span style="font-size:15px; font-weight:800; letter-spacing:-0.02em; color:var(--text); white-space:nowrap;">Sophie<span style="color:var(--accent);">.</span></span>
+      </a>
+      <span style="width:1px; height:16px; background:var(--divider); flex-shrink:0;"></span>
+      <div style="display:flex; align-items:center; gap:8px; flex-shrink:0;">
+        <a href="Portfolio.dc.html#work" style="font-size:14px; font-weight:600; color:var(--text-muted); padding:8px 12px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Work</a>
+        <a href="About.dc.html" style="font-size:14px; font-weight:600; color:var(--text-muted); padding:8px 12px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">About</a>
+        <a href="Portfolio.dc.html#contact" style="font-size:14px; font-weight:600; color:var(--text-muted); padding:8px 12px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Contact</a>
+      </div>
+      <a href="About.dc.html#resume" style="font-size:14px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:9px 16px; border-radius:100px; white-space:nowrap; flex-shrink:0; transition:background 0.2s; text-decoration:none;" style-hover="background:#6E1B39;">Resume</a>
+    </div>
+    </sc-if>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; align-items:center; justify-content:space-between; width:100%; background:var(--nav-bg); backdrop-filter:blur(16px); border:1px solid var(--nav-border); border-radius:100px; padding:7px 7px 7px 18px; box-shadow:0 2px 16px rgba(0,0,0,0.18); transition:background 0.3s ease, border-color 0.3s ease;">
+        <a href="Portfolio.dc.html" style="display:flex; align-items:center; gap:8px; flex-shrink:0; text-decoration:none;">
+          <span style="width:7px; height:7px; border-radius:100px; background:#3EC46D; flex-shrink:0;"></span>
+          <span style="font-size:16px; font-weight:800; letter-spacing:-0.02em; color:var(--text); white-space:nowrap;">Sophie<span style="color:var(--accent);">.</span></span>
+        </a>
+        <button onClick="{{ toggleMenu }}" aria-label="Open menu" style="width:38px; height:38px; flex-shrink:0; border:none; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; cursor:pointer; padding:0;">
+          <sc-if value="{{ menuClosed }}" hint-placeholder-val="{{ true }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round"><path d="M4 7h16"></path><path d="M4 12h16"></path><path d="M4 17h16"></path></svg>
+          </sc-if>
+          <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--text)" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12"></path><path d="M18 6L6 18"></path></svg>
+          </sc-if>
+        </button>
+      </div>
+    </sc-if>
+  </nav>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeMenu }}" style="position:fixed; top:70px; left:16px; right:16px; z-index:60; background:var(--nav-bg); backdrop-filter:blur(20px); border:1px solid var(--nav-border); border-radius:24px; box-shadow:0 18px 50px rgba(0,0,0,0.3); overflow:hidden;">
+      <a href="Portfolio.dc.html#work" style="display:block; font-size:17px; font-weight:700; color:var(--text); padding:18px 22px; text-decoration:none; border-bottom:1px solid var(--divider);">Work</a>
+      <a href="About.dc.html" style="display:block; font-size:17px; font-weight:700; color:var(--text); padding:18px 22px; text-decoration:none; border-bottom:1px solid var(--divider);">About</a>
+      <a href="Portfolio.dc.html#contact" style="display:block; font-size:17px; font-weight:700; color:var(--text); padding:18px 22px; text-decoration:none; border-bottom:1px solid var(--divider);">Contact</a>
+      <a href="About.dc.html#resume" style="display:block; font-size:17px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:18px 22px; text-decoration:none;">Resume</a>
+      <div style="display:flex; align-items:center; justify-content:space-between; padding:16px 22px; border-top:1px solid var(--divider);">
+        <span style="font-size:13px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--text-muted);">Appearance</span>
+        <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="flex-shrink:0; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--toggle-bg); display:flex; align-items:center; padding:3px; cursor:pointer;">
+          <div style="width:24px; height:24px; border-radius:100px; background:var(--bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
             <sc-if value="{{ dark }}" hint-placeholder-val="{{ true }}">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#F0A0BE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3.5 Q11 4.5 11 12 Q11 19.5 18.5 20.5 Q13 22.5 8.5 18.5 Q4 14.5 6 8.5 Q8 3 15 3.5 Z"></path><circle cx="9" cy="9" r="0.6" fill="#F0A0BE"></circle><circle cx="7.5" cy="13" r="0.5" fill="#F0A0BE"></circle></svg>
             </sc-if>
@@ -44,21 +83,9 @@
             </sc-if>
           </div>
         </button>
-      </sc-if>
-    <div style="display:flex; align-items:center; background:var(--nav-bg); backdrop-filter:blur(16px); border:1px solid var(--nav-border); border-radius:100px; padding:6px 4px 6px 10px; box-shadow:0 2px 16px rgba(0,0,0,0.3); max-width:100%; overflow-x:auto; gap:2px; transition:background 0.3s ease, border-color 0.3s ease;">
-      <a href="Portfolio.dc.html" style="display:flex; align-items:center; gap:6px; margin-right:10px; flex-shrink:0; text-decoration:none;">
-        <span style="width:6px; height:6px; border-radius:100px; background:#3EC46D; flex-shrink:0;"></span>
-        <span style="font-size:11px; font-weight:800; letter-spacing:-0.02em; color:var(--text); white-space:nowrap;">Sophie<span style="color:var(--accent);">.</span></span>
-      </a>
-      <span style="width:1px; height:12px; background:var(--divider); flex-shrink:0;"></span>
-      <div style="display:flex; align-items:center; gap:0; flex-shrink:0;">
-        <a href="Portfolio.dc.html#work" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Work</a>
-        <a href="About.dc.html" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">About</a>
-        <a href="Portfolio.dc.html#contact" style="font-size:10.5px; font-weight:600; color:var(--text-muted); padding:5px 6px; border-radius:100px; white-space:nowrap; text-decoration:none;" style-hover="color:var(--accent); background:var(--eyebrow-bg);">Contact</a>
       </div>
-      <a href="About.dc.html#resume" style="font-size:10.5px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:6px 10px; border-radius:100px; white-space:nowrap; flex-shrink:0; transition:background 0.2s; text-decoration:none;" style-hover="background:#6E1B39;">Resume</a>
     </div>
-  </nav>
+  </sc-if>
   <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
     <button onClick="{{ toggleTheme }}" aria-label="Toggle light and dark mode" style="position:absolute; left:24px; top:14px; width:56px; height:30px; border-radius:100px; border:1px solid var(--nav-border); background:var(--nav-bg); backdrop-filter:blur(16px); display:flex; align-items:center; padding:3px; cursor:pointer; z-index:51; box-shadow:0 2px 16px rgba(0,0,0,0.06); transition:background 0.3s ease, border-color 0.3s ease;">
       <div style="width:24px; height:24px; border-radius:100px; background:var(--toggle-bg); display:flex; align-items:center; justify-content:center; transition:transform 0.25s ease; transform:{{ knobTransform }};">
@@ -80,8 +107,8 @@
   </div>
 
   <section style="max-width:680px; margin:0 auto; padding:32px 24px 0; text-align:center;" data-reveal>
-    <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--proj); background:var(--proj-tint); padding:6px 16px; border-radius:100px; margin-bottom:22px;">Case Study — Contract Work</div>
-    <h1 style="font-size:clamp(28px,5vw,42px); font-weight:800; letter-spacing:-0.035em; line-height:1.18; margin:0 0 20px; color:var(--text);">Designing a fantasy world with no art at all</h1>
+    <div style="display:inline-block; font-size:11px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--proj); background:var(--proj-tint); padding:6px 16px; border-radius:100px; margin-bottom:20px;">Case Study — Contract Work</div>
+    <h1 style="font-size:clamp(28px,5vw,42px); font-weight:800; letter-spacing:-0.035em; line-height:1.18; margin:0 0 14px; color:var(--text);">Designing a fantasy world with no art at all</h1>
     <p style="font-size:17px; font-weight:300; color:var(--text-muted); line-height:1.7; max-width:600px; margin:0 auto 32px;">Belavi turns your goals into an RPG (role-playing game) style quest. As a gamer myself, I know fantasy worlds are usually built through art and character detail. Here, I had almost none of that. Just text and whitespace.</p>
 
     <div style="{{ statRowStyle }}">
@@ -113,7 +140,7 @@
     </div>
     <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 20px;">Belavi reframes goal-setting as a story: your biggest goal becomes your "epic mission," broken into small, achievable "quests" that build toward it. The idea is that small, consistent steps eventually add up to something big, the way a single drop eventually becomes an ocean.</p>
     <p style="font-size:16px; font-weight:300; color:var(--text-muted); line-height:1.8; margin:0 0 24px;">Came in as contract designer, working with a PM who had already sketched the product's logic in wireframes. My job was to study those wireframes, understand the intended experience, and design the first real set of high-fidelity screens.</p>
-    <div style="border-left:2px solid var(--proj); padding:2px 0 2px 18px;">
+    <div style="border-left:2px solid var(--proj); padding:2px 0 2px 16px;">
       <p style="font-size:14.5px; font-weight:500; font-style:italic; color:var(--text-muted); line-height:1.7; margin:0;">Example: an epic mission like "become a global speaker" gets broken into a first quest, then the next — small wins building toward the larger goal.</p>
     </div>
   </section>
@@ -143,7 +170,7 @@
         <span style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">← Previous</span>
         <span style="font-size:15px; font-weight:800; color:var(--text);">Sweatville</span>
       </a>
-      <a href="Portfolio.dc.html#work" style="font-size:12px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:10px 22px; border-radius:100px; text-decoration:none; transition:background 0.2s;" style-hover="background:#6E1B39;">All work</a>
+      <a href="Portfolio.dc.html#work" style="font-size:12px; font-weight:700; color:#FFFFFF; background:#8B2347; padding:10px 24px; border-radius:100px; text-decoration:none; transition:background 0.2s;" style-hover="background:#6E1B39;">All work</a>
       <a href="Fertitude.dc.html" style="display:flex; flex-direction:column; align-items:flex-end; text-decoration:none; max-width:45%;" style-hover="opacity:0.7;">
         <span style="font-size:11px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text-muted); margin-bottom:4px;">Next →</span>
         <span style="font-size:15px; font-weight:800; color:var(--text);">Fertitude</span>
@@ -156,12 +183,12 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { dark: (typeof localStorage !== 'undefined' && localStorage.getItem('sophie-theme') === 'light') ? false : true, isMobile: false, pageEnter: false , showTop: false };
+  state = { dark: (typeof localStorage !== 'undefined' && localStorage.getItem('sophie-theme') === 'light') ? false : true, isMobile: false, menuOpen: false, pageEnter: false , showTop: false };
 
   componentDidMount() {
     this.mq = window.matchMedia('(max-width: 680px)');
     this.setState({ isMobile: this.mq.matches });
-    this.mqHandler = (e) => this.setState({ isMobile: e.matches });
+    this.mqHandler = (e) => this.setState({ isMobile: e.matches, menuOpen: false });
     this.mq.addEventListener('change', this.mqHandler);
     this.initMotion();
   }
@@ -251,8 +278,12 @@ class Component extends DCLogic {
       rootStyle: `${varString};min-height:100vh;overflow-x:hidden;background:var(--bg);color:var(--text);transition:background 0.3s ease,color 0.3s ease;`,
       toggleTheme: () => this.setState(s => { const next = !s.dark; try { localStorage.setItem('sophie-theme', next ? 'dark' : 'light'); } catch (e) {} return { dark: next }; }),
       statRowStyle: this.state.isMobile ? 'display:grid; grid-template-columns:repeat(3,1fr); gap:6px; margin-bottom:44px;' : 'display:flex; align-items:center; justify-content:center; gap:0; flex-wrap:wrap; margin-bottom:44px;',
-      statItemStyle: this.state.isMobile ? 'padding:0 4px; text-align:center;' : 'padding:0 22px; text-align:center;',
+      statItemStyle: this.state.isMobile ? 'padding:0 4px; text-align:center;' : 'padding:0 24px; text-align:center;',
       showDivider: !this.state.isMobile,
+      menuOpen: !!this.state.menuOpen,
+      menuClosed: !this.state.menuOpen,
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
       isMobile: this.state.isMobile,
       isDesktop: !this.state.isMobile,
       overlayOpacity: this.state.pageEnter ? 0 : 1,
