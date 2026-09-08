@@ -1,12 +1,53 @@
 {
   "rewrites": [
-    { "source": "/", "destination": "/Portfolio.dc.html" },
-    { "source": "/about", "destination": "/About.dc.html" },
-    { "source": "/portfolio", "destination": "/Portfolio.dc.html" },
-    { "source": "/bellavi", "destination": "/Bellavi.dc.html" },
-    { "source": "/fanatix", "destination": "/Fanatix.dc.html" },
-    { "source": "/fertitude", "destination": "/Fertitude.dc.html" },
-    { "source": "/jumpweg", "destination": "/JumpWeg.dc.html" },
-    { "source": "/sweatville", "destination": "/Sweatville.dc.html" }
+    {
+      "source": "/",
+      "destination": "/Portfolio.dc.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/About.dc.html"
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/Portfolio.dc.html"
+    },
+    {
+      "source": "/bellavi",
+      "destination": "/Bellavi.dc.html"
+    },
+    {
+      "source": "/fanatix",
+      "destination": "/Fanatix.dc.html"
+    },
+    {
+      "source": "/fertitude",
+      "destination": "/Fertitude.dc.html"
+    },
+    {
+      "source": "/jumpwag",
+      "destination": "/JumpWag.dc.html"
+    },
+    {
+      "source": "/sweatville",
+      "destination": "/Sweatville.dc.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/jumpweg",
+      "destination": "/jumpwag",
+      "permanent": true
+    },
+    {
+      "source": "/JumpWeg.dc.html",
+      "destination": "/jumpwag",
+      "permanent": true
+    },
+    {
+      "source": "/belavi",
+      "destination": "/bellavi",
+      "permanent": true
+    }
   ]
 }

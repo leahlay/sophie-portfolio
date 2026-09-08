@@ -10,4 +10,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://sophie-portfolio.vercel.app/sitemap.xml
+Sitemap: https://sophiebydesign.com/sitemap.xml

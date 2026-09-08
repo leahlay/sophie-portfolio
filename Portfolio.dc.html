@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sophie Livingstone — Product Designer</title>
 <meta name="description" content="Sophie Livingstone is a product designer working across femtech, sports, and SaaS. See case studies from Fertitude, Fanatix, and JumpWag.">
+<link rel="canonical" href="https://sophiebydesign.com/">
 <meta property="og:title" content="Sophie Livingstone — Product Designer">
 <meta property="og:description" content="Sophie Livingstone is a product designer working across femtech, sports, and SaaS. See case studies from Fertitude, Fanatix, and JumpWag.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://sophie-portfolio.vercel.app/">
+<meta property="og:url" content="https://sophiebydesign.com/">
+<meta property="og:image" content="https://sophiebydesign.com/assets/og-card.png">
+<meta property="og:image:alt" content="Sophie Livingstone, product designer">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -16,7 +20,7 @@
   "name": "Sophie Livingstone",
   "alternateName": "Sophia Livingstone",
   "jobTitle": "Product Designer",
-  "url": "https://sophie-portfolio.vercel.app",
+  "url": "https://sophiebydesign.com",
   "sameAs": ["https://www.linkedin.com/in/sophialivingstone/"],
   "knowsAbout": ["Product Design", "UI/UX Design", "Mobile Design", "Design Systems"]
 }
@@ -24,6 +28,80 @@
 <script src="./support.js"></script>
 </head>
 <body>
+<style id="nojs-hide-app">x-dc { display: none !important; }</style>
+<div id="nojs-fallback">
+  <style>
+    body { margin: 0; }
+    #nojs-fallback { min-height: 100vh; background: #111111; color: #F5F3F2; font-family: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+    .ns-wrap { max-width: 560px; margin: 0 auto; padding: 72px 24px 96px; }
+    .ns-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 56px; }
+    .ns-dot { width: 9px; height: 9px; border-radius: 100px; background: #3EC46D; }
+    .ns-name { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; }
+    .ns-name span { color: #E0729C; }
+    .ns-kicker { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #E0729C; margin-bottom: 18px; }
+    .ns-h1 { font-size: 32px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin: 0 0 20px; text-wrap: pretty; }
+    .ns-p { font-size: 16px; font-weight: 300; color: #A8A8A8; line-height: 1.75; margin: 0 0 16px; text-wrap: pretty; }
+    .ns-rule { height: 1px; background: rgba(255,255,255,0.15); margin: 40px 0; }
+    .ns-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #818181; margin-bottom: 18px; }
+    .ns-links { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+    .ns-links a { font-size: 16px; font-weight: 700; color: #F5F3F2; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 2px; }
+    .ns-links a:hover, .ns-links a:focus-visible { color: #E0729C; border-bottom-color: #E0729C; }
+    .ns-links a:focus-visible { outline: 2px solid #E0729C; outline-offset: 3px; }
+    .ns-cta { display: inline-block; margin-top: 32px; font-size: 15px; font-weight: 700; color: #FFFFFF !important; background: #8B2347; padding: 13px 26px; border-radius: 100px; text-decoration: none; border: none !important; }
+    .ns-cta:focus-visible { outline: 2px solid #E0729C; outline-offset: 3px; }
+  </style>
+  <div class="ns-wrap">
+    <div class="ns-brand"><span class="ns-dot"></span><span class="ns-name">Sophie<span>.</span></span></div>
+    <div class="ns-kicker">JavaScript required</div>
+    <h1 class="ns-h1">This site needs JavaScript to display properly.</h1>
+    <p class="ns-p">Either it's switched off in your browser, or a script failed to load. Rather than show you a half-built page, here's everything you'd have come here for.</p>
+    <a class="ns-cta" href="assets/sophie-cv.pdf">Download my resume (PDF)</a>
+    <div class="ns-rule"></div>
+    <div class="ns-label">Sophie Livingstone — Product Designer</div>
+    <p class="ns-p">Two years in product design across femtech, sports, and SaaS, and five years in marketing before that. Full product redesigns at Fertitude and Fanatix, co-founded JumpWag, and designed Sweatville end to end.</p>
+    <div class="ns-rule"></div>
+    <div class="ns-label">Get in touch</div>
+    <div class="ns-links">
+      <a href="mailto:sophialivingstonee@gmail.com">sophialivingstonee@gmail.com</a>
+      <a href="https://www.linkedin.com/in/sophialivingstone/">linkedin.com/in/sophialivingstone</a>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var n = document.getElementById('nojs-fallback');
+  var h = document.getElementById('nojs-hide-app');
+  if (!n) return;
+  // Assume the runtime will arrive: hide the fallback, un-hide the app. No flash.
+  n.style.display = 'none';
+  if (h) h.disabled = true;
+  var shown = false, tries = 0;
+  function rendered() {
+    var r = document.getElementById('dc-root');
+    return !!(r && r.children.length);
+  }
+  function tick() {
+    if (rendered()) {
+      if (n.parentNode) n.parentNode.removeChild(n);
+      if (h && h.parentNode) h.parentNode.removeChild(h);
+      return;
+    }
+    tries++;
+    // ~1.6s with no render: the runtime failed to load. Show the fallback.
+    if (!shown && tries >= 3) {
+      shown = true;
+      n.style.display = '';
+      if (h) h.disabled = false;
+      var x = document.querySelector('x-dc');
+      if (x) x.style.display = 'none';
+    }
+    if (tries < 40) setTimeout(tick, 250);
+  }
+  // window 'load' fires once support.js has either loaded or definitively failed.
+  if (document.readyState === 'complete') setTimeout(tick, 250);
+  else window.addEventListener('load', function () { setTimeout(tick, 250); });
+})();
+</script>
 <x-dc>
 <helmet>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +109,10 @@
   <style>
     body { margin: 0; background: #111111; font-family: 'Nunito Sans', 'DM Sans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; transition: background 0.3s ease; }
     ::selection { background: rgba(139,35,71,0.4); color: #FFFFFF; }
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+      * { animation-duration: 0.01ms !important; animation-delay: 0ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; transition-delay: 0ms !important; scroll-behavior: auto !important; }
+    }
   </style>
   <script src="./image-slot.js"></script>
 </helmet>
@@ -124,7 +206,7 @@
 
     <div style="position:relative; width:220px; height:220px; margin-top:48px; flex-shrink:0;">
       <div style="width:100%; height:100%; border-radius:50%; overflow:hidden; box-shadow:0 0 0 4px var(--bg), 0 0 0 6px rgba(139,35,71,0.5), 0 24px 50px rgba(0,0,0,0.3); background:#1A1A1A; transition:box-shadow 0.3s ease;">
-        <img src="assets/me.png" alt="Portrait of Sophie" style="height:100%; object-fit:contain; object-position:center 8%; width:100%">
+        <img src="assets/me.webp" alt="Portrait of Sophie" style="height:100%; object-fit:contain; object-position:center 8%; width:100%">
       </div>
       
       <svg style="position:absolute; top:2px; left:-4px; width:26px; height:26px; transform:rotate(200deg) scaleX(-1);" viewBox="0 0 36 36" fill="none" stroke="var(--doodle)" stroke-width="1.8" stroke-linecap="round"><path d="M4 20 Q14 4 30 8"></path><path d="M22 5 L30 8 L27 16"></path></svg>
@@ -169,7 +251,7 @@
       </div>
       <div style="display:flex; align-items:center; justify-content:{{ cardImgJustify }}; order:{{ cardImageOrder }}; min-width:0;">
         <div style="height:{{ fertImgHeight }}; border-radius:24px; flex-shrink:0; transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:scale(1.08) rotate(-1deg);">
-          <img src="assets/fertitude.jpg" alt="Fertitude home screen showing today's cycle day and phase" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
+          <img src="assets/fertitude.webp" alt="Fertitude home screen showing today's cycle day and phase" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
         </div>
       </div>
     </a>
@@ -193,12 +275,12 @@
       </div>
       <div style="display:flex; align-items:center; justify-content:{{ cardImgJustify }}; order:{{ cardImageOrder }};">
         <div style="height:{{ fanImgHeight }}; border-radius:24px; flex-shrink:0; transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:scale(1.08) rotate(1deg);">
-          <img src="assets/fanatix.jpg" alt="Fanatix home screen showing live match scores" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
+          <img src="assets/fanatix.webp" alt="Fanatix home screen showing live match scores" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
         </div>
       </div>
     </a>
 
-    <a href="JumpWeg.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:24px; background:radial-gradient(circle at 1px 1px, rgba(139,35,71,0.16) 1.5px, transparent 0) 0 0/18px 18px, #FBEAF0; border:1px solid #F3D3E0; padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.4s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.05);">
+    <a href="JumpWag.dc.html" data-reveal="" style="border-radius:20px; overflow:hidden; display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); align-items:start; gap:24px; background:radial-gradient(circle at 1px 1px, rgba(139,35,71,0.16) 1.5px, transparent 0) 0 0/18px 18px, #FBEAF0; border:1px solid #F3D3E0; padding:clamp(28px,6vw,48px); opacity:0; transform:translateY(28px); transition:transform 0.4s cubic-bezier(.16,1,.3,1), box-shadow 0.3s ease, filter 0.3s ease, opacity 0.4s ease; text-decoration:none;" style-hover="transform:translateY(-6px) scale(1.01); box-shadow:0 16px 44px rgba(0,0,0,0.18); filter:brightness(1.05);">
       <div ref="{{ jumpTextRef }}">
         <div style="display:flex; flex-wrap:wrap; justify-content:{{ cardChipsJustify }}; gap:6px; margin-bottom:20px;">
           <span style="font-size:11px; font-weight:600; letter-spacing:0.05em; padding:4px 12px; border-radius:100px; background:rgba(139,35,71,0.08); border:1px solid rgba(139,35,71,0.15); color:#8B2347;">SaaS</span>
@@ -217,7 +299,7 @@
       </div>
       <div style="display:flex; align-items:center; justify-content:{{ cardImgJustify }}; order:{{ cardImageOrder }};">
         <div style="height:{{ jumpImgHeight }}; border-radius:24px; flex-shrink:0; transition:transform 0.4s cubic-bezier(.34,1.56,.64,1);" style-hover="transform:scale(1.08) rotate(-1deg);">
-          <img src="assets/jumpweg.jpg" alt="JumpWag homepage with viral trends headline" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
+          <img src="assets/jumpwag.webp" alt="JumpWag homepage with viral trends headline" style="height:100%; width:auto; object-fit:contain; border-radius:24px; display:block;">
         </div>
       </div>
     </a>
@@ -309,6 +391,11 @@ class Component extends DCLogic {
     this.setState({ cardHeights: heights });
   }
 
+  rm() {
+    if (this._rm === undefined) this._rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    return this._rm;
+  }
+
   initMotion() {
     requestAnimationFrame(() => requestAnimationFrame(() => this.setState({ pageEnter: true })));
     setTimeout(() => this.setState({ pageEnter: true }), 300);
@@ -319,6 +406,7 @@ class Component extends DCLogic {
       if (!a || a.target === '_blank') return;
       const href = a.getAttribute('href') || '';
       if (!href.includes('.dc.html')) return;
+      if (this.rm()) return;
       e.preventDefault();
       this.setState({ pageEnter: false });
       setTimeout(() => { window.location.href = href; }, 380);
@@ -398,7 +486,7 @@ class Component extends DCLogic {
       isMobile: this.state.isMobile,
       isDesktop: !this.state.isMobile,
       cardImageOrder,
-      overlayOpacity: this.state.pageEnter ? 0 : 1,
+      overlayOpacity: (this.state.pageEnter || this.rm()) ? 0 : 1,
       fertTextRef: this.fertTextRef,
       fanTextRef: this.fanTextRef,
       jumpTextRef: this.jumpTextRef,
